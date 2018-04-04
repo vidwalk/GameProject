@@ -6,20 +6,64 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprite0</sprite>
+    <sprites name="Player">
+      <sprite>sprites\spr_player_idle</sprite>
+    </sprites>
+    <sprites name="Walls">
+      <sprite>sprites\spr_wall_concrete_01</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\ts_concrete</background>
-    <background>background\dgfafadf</background>
-    <background>background\fadf</background>
-    <background>background\ts_concrete_desert</background>
+    <backgrounds name="Tilesets">
+      <background>background\bg_interior_concrete</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="State Machine">
+      <script>scripts\state_machine_init.gml</script>
+      <script>scripts\state_create.gml</script>
+      <script>scripts\state_cleanup.gml</script>
+      <script>scripts\state_execute.gml</script>
+      <script>scripts\state_switch.gml</script>
+      <script>scripts\state_switch_previous.gml</script>
+      <script>scripts\state_update.gml</script>
+      <script>scripts\state_init.gml</script>
+    </scripts>
+    <scripts name="Player">
+      <scripts name="States">
+        <script>scripts\scr_player_idle.gml</script>
+        <script>scripts\scr_player_run.gml</script>
+      </scripts>
+      <scripts name="Input ">
+        <script>scripts\scr_player_getinput.gml</script>
+      </scripts>
+      <scripts name="Movement">
+        <script>scripts\scr_player_movement.gml</script>
+        <script>scripts\scr_player_collision.gml</script>
+      </scripts>
+      <scripts name="Sprite">
+        <script>scripts\scr_player_rotate.gml</script>
+      </scripts>
+    </scripts>
+  </scripts>
   <objects name="objects">
-    <object>objects\obj_player</object>
+    <objects name="Player">
+      <object>objects\obj_player</object>
+    </objects>
+    <objects name="Debug">
+      <object>objects\obj_debug</object>
+      <object>objects\obj_game_control</object>
+    </objects>
+    <objects name="Solids">
+      <object>objects\obj_solid</object>
+      <objects name="Walls">
+        <object>objects\obj_wall_concrete</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rm_01</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
