@@ -28,7 +28,7 @@
             <string>///Properties
 //Movement
 dir = 0; //Initial direction
-movespeed = 5; //Moving speed
+movespeed = 8; //Moving speed
   
 </string>
           </argument>
