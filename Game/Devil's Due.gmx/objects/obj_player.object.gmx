@@ -130,10 +130,10 @@ state_execute();
           <argument>
             <kind>1</kind>
             <string>//State specific animations
-if (state_name == "idle") 
-draw_sprite_ext(spr_player_idle,0,floor(x),floor(y),1,1,dir,c_white,1)
-else if (state_name == "run")
-draw_sprite_ext(spr_player_idle,0,floor(x),floor(y),1,1,dir,c_white,1)
+//if (state_name == "idle") 
+draw_sprite_ext(sprite_index,0,floor(x),floor(y),1,1,dir,c_white,1)
+//else if (state_name == "run")
+//draw_sprite_ext(spr_player_idle,0,floor(x),floor(y),1,1,dir,c_white,1)
 </string>
           </argument>
         </arguments>
