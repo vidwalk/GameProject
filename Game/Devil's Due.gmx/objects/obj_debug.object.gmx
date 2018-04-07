@@ -34,8 +34,19 @@ draw_text(100,100,"Player state: "+string(state_name)); //Player state
 draw_text(100,140,"HSpeed: "+string(hsp)+ " " + "VSpeed: "+string(vsp)); //Player speed
 }
 
-with (obj_player_fire)
-draw_text(100,120,"Player fire state: "+string(state_name)); //Player fire state
+draw_text(100,120,"Player fire state: "+string(obj_player_fire.state_name)); //Player fire state
+if (obj_player_fire.state_name!="fire")
+{
+draw_text(100,160,"Player fire distance: not available"); //debug distance
+draw_text(100,180,"Player found target: not available"); //debug target
+}
+else
+{
+draw_text(100,160,"Player fire distance: "+string(obj_player_fire.distance)) //debug distance
+draw_text(100,180,"Player found target: "+string(obj_player_fire.target)) //debug target
+}
+draw_text(100,200,"Player can fire: "+string(obj_player.canfire)); //if player can fire
+draw_text(100,220,"Player firecd: "+string(obj_player.firecd)); //player fire cooldown
 </string>
           </argument>
         </arguments>

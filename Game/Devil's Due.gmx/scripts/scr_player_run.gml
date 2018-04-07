@@ -18,3 +18,10 @@ state_switch("idle");
 
 //Verify collision then move
 scr_player_collision();
+
+//Switch to fire state if pressing button and can fire
+if (fire && canfire)
+{
+with (obj_player_fire)
+state_switch("fire");
+}

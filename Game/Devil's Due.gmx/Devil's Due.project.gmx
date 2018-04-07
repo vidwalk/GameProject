@@ -19,6 +19,9 @@
       <sprite>sprites\spr_door_yellow</sprite>
       <sprite>sprites\spr_door_blue</sprite>
     </sprites>
+    <sprites name="Bullets">
+      <sprite>sprites\spr_bullet_mask</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -41,8 +44,10 @@
       <scripts name="States">
         <script>scripts\scr_player_idle.gml</script>
         <script>scripts\scr_player_run.gml</script>
-        <script>scripts\scr_player_fire.gml</script>
-        <script>scripts\scr_player_notFire.gml</script>
+        <scripts name="Fire">
+          <script>scripts\scr_player_notFire.gml</script>
+          <script>scripts\scr_player_fire.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Input ">
         <script>scripts\scr_player_getInput.gml</script>
@@ -51,6 +56,9 @@
         <script>scripts\scr_player_movement.gml</script>
         <script>scripts\scr_player_collision.gml</script>
       </scripts>
+    </scripts>
+    <scripts name="Bullets">
+      <script>scripts\scr_bullet_hitscan.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -63,6 +71,7 @@
       <object>objects\obj_game_control</object>
     </objects>
     <objects name="Solids">
+      <object>objects\obj_targetable</object>
       <object>objects\obj_solid</object>
       <objects name="Walls">
         <object>objects\obj_wall_concrete</object>
@@ -73,6 +82,9 @@
         <object>objects\obj_door_yellow</object>
         <object>objects\obj_door_green</object>
       </objects>
+    </objects>
+    <objects name="Bullets">
+      <object>objects\obj_bullet</object>
     </objects>
   </objects>
   <rooms name="rooms">
