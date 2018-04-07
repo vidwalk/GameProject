@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\spr_player_idle</sprite>
+      <sprite>sprites\spr_player_run</sprite>
     </sprites>
     <sprites name="Walls">
       <sprite>sprites\spr_wall_concrete_01</sprite>
@@ -40,22 +41,22 @@
       <scripts name="States">
         <script>scripts\scr_player_idle.gml</script>
         <script>scripts\scr_player_run.gml</script>
+        <script>scripts\scr_player_fire.gml</script>
+        <script>scripts\scr_player_notFire.gml</script>
       </scripts>
       <scripts name="Input ">
-        <script>scripts\scr_player_getinput.gml</script>
+        <script>scripts\scr_player_getInput.gml</script>
       </scripts>
       <scripts name="Movement">
         <script>scripts\scr_player_movement.gml</script>
         <script>scripts\scr_player_collision.gml</script>
-      </scripts>
-      <scripts name="Sprite">
-        <script>scripts\scr_player_rotate.gml</script>
       </scripts>
     </scripts>
   </scripts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\obj_player</object>
+      <object>objects\obj_player_fire</object>
     </objects>
     <objects name="Debug">
       <object>objects\obj_debug</object>

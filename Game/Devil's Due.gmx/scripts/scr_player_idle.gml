@@ -1,6 +1,6 @@
 //Idle State
 //Get Input
-scr_player_getinput();
+scr_player_getInput();
 //How to move
 scr_player_movement();
 //Change sprite
@@ -10,3 +10,9 @@ dir = point_direction (x,y,mouse_x,mouse_y);
 //Switch to run state if moving
 if (moving == true)
 state_switch("run");
+//Switch to fire state if firing
+if (fire)
+{
+with (obj_player_fire)
+state_switch("fire");
+}

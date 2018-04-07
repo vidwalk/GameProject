@@ -31,8 +31,11 @@ draw_set_color(c_blue); //Set color
 with (obj_player)
 {
 draw_text(100,100,"Player state: "+string(state_name)); //Player state
-draw_text(100,120,"HSpeed: "+string(hsp)+ " " + "VSpeed: "+string(vsp)); //Player speed
+draw_text(100,140,"HSpeed: "+string(hsp)+ " " + "VSpeed: "+string(vsp)); //Player speed
 }
+
+with (obj_player_fire)
+draw_text(100,120,"Player fire state: "+string(state_name)); //Player fire state
 </string>
           </argument>
         </arguments>
