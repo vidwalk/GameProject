@@ -29,8 +29,8 @@
 //Movement
 dir = 0; //Initial direction
 movespeed = 5; //Moving speed
-range = 300; //Initial gun range -- test
-firecd = 1; //Initial gun fire cd -- test
+range = 500; //Initial gun range -- test
+firecd = 0.05; //Initial gun fire cd -- test
 canfire = true; //Can fire boolean -- test
   
 </string>
