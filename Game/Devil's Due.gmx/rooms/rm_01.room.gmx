@@ -672,6 +672,10 @@
     <instance objName="obj_wall_concrete" x="864" y="3520" name="inst_896998FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="864" y="3584" name="inst_2819412B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_game_control" x="48" y="4320" name="inst_6A4C73BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="528" y="544" name="inst_FBABFAB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="320" y="1056" name="inst_36996283" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="576" y="1088" name="inst_AD5E0BF3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="272" y="640" name="inst_25AA799B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_interior_concrete" x="176" y="160" w="64" h="64" xo="0" yo="0" id="10001253" name="inst_CADDDB7D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
