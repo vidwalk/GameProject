@@ -10,6 +10,24 @@
         <sounds name="Deagle">
           <sound>sound\snd_deagle_simple</sound>
         </sounds>
+        <sounds name="AutoRifle">
+          <sound>sound\snd_rifle_auto</sound>
+        </sounds>
+      </sounds>
+    </sounds>
+    <sounds name="Bullet">
+      <sound>sound\snd_bullet_impact_01</sound>
+    </sounds>
+    <sounds name="Enemies">
+      <sounds name="Grunt">
+        <sounds name="Hit">
+          <sound>sound\snd_grunt_hit_01</sound>
+          <sound>sound\snd_grunt_hit_02</sound>
+          <sound>sound\snd_grunt_hit_03</sound>
+          <sound>sound\snd_grunt_hit_04</sound>
+          <sound>sound\snd_grunt_hit_05</sound>
+          <sound>sound\snd_grunt_hit_06</sound>
+        </sounds>
       </sounds>
     </sounds>
   </sounds>
@@ -84,6 +102,7 @@
     <objects name="Player">
       <object>objects\obj_player</object>
       <object>objects\obj_player_fire</object>
+      <object>objects\obj_player_weapons_wheel</object>
     </objects>
     <objects name="Debug">
       <object>objects\obj_debug</object>

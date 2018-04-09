@@ -32,6 +32,7 @@ dir = 0; //Initial direction
 movespeed = 5; //Moving speed
 canfire = true; //Can fire boolean -- test
 currently_equipped_weapon = 2; //Currently equipped weapon id
+
   
 </string>
           </argument>
@@ -81,28 +82,6 @@ state_init("idle");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize other states
-instance_create(0,0,obj_player_fire)
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Weapons grid
 weapons_total = 2;
 //Weapons collumns
@@ -127,18 +106,44 @@ weapons_grid[2,3] = true;
 weapons_grid[1,4] = 3;
 weapons_grid[2,4] = 1;
 //Cooldown
-weapons_grid[1,5] = 0.8;
+weapons_grid[1,5] = 0.7;
 weapons_grid[2,5] = 0.05;
 //Range
-weapons_grid[1,6] = 350;
-weapons_grid[2,6] = 200;
+weapons_grid[1,6] = 1000;
+weapons_grid[2,6] = 1000;
 //Sound
 weapons_grid[1,7] = snd_deagle_simple;
-weapons_grid[2,7] = snd_deagle_simple;
+weapons_grid[2,7] = snd_rifle_auto;
+//Accuracy
+weapons_grid[1,8] = 2;
+weapons_grid[2,8] = 9;
 
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize other states and objects
+instance_create(0,0,obj_player_fire)
+instance_create(0,0,obj_player_weapons_wheel)
 </string>
           </argument>
         </arguments>

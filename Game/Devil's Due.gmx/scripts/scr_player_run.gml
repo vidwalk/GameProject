@@ -25,3 +25,7 @@ if (fire && canfire)
 with (obj_player_fire)
 state_switch("fire");
 }
+
+//Audio Listener
+audio_listener_position(x,y,0);
+
