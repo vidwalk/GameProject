@@ -7,11 +7,8 @@ while (distance < range) //if distance is lower than range
     if (target) //if you  met target
     {
     //Play sound
-    emitter1 = audio_emitter_create()
-    audio_emitter_position(emitter1, target.x,target.y,0);
-    audio_play_sound_on(emitter1,target.hit_sound[irandom_range(0,array_length_1d(target.hit_sound)-1)],0,1);
-    //audio_emitter_free(emitter1); //Dunno if I should free emitter or not
-
+    audio_play_sound_at(target.hit_sound[irandom_range(0,array_length_1d(target.hit_sound)-1)],target.x,target.y,0,100,600,1,false,2);
+    
     bullet = instance_create(argument[0].x+lengthdir_x(distance,argument[0].dir+randomshot),argument[0].y+lengthdir_y(distance,argument[0].dir+randomshot),obj_bullet) //create bullet on collision point
     bullet.creator = argument[0];
     break;
@@ -23,9 +20,7 @@ if (!target) //haven't met any target
 instance_create(argument[0].x+lengthdir_x(range,argument[0].dir+randomshot),argument[0].y+lengthdir_y(range,argument[0].dir+randomshot),obj_bullet) //create bullet with default range
 
 //Play sound
-emitter2 = audio_emitter_create()
-audio_emitter_position(emitter2, argument[0].x,argument[0].y,0);
-audio_play_sound_on(emitter2, argument[0].weapons_grid[argument[0].currently_equipped_weapon,7],0,1);
-//audio_emitter_free(emitter2); //Dunno if I should free emitter or no
+audio_play_sound_at(argument[0].weapons_grid[argument[0].currently_equipped_weapon,7],argument[0].x,argument[0].y,0,100,600,1,false,1);
+
 
 

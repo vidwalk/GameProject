@@ -26,9 +26,24 @@
           <argument>
             <kind>1</kind>
             <string>weapons_wheel_increment = 0; //weapons wheel increment
-weapons_wheel[0] = 0; //Weapon wheel init
-obj_player.currently_equipped_weapon = 1; //Default weapon equip
-
+weapons_wheel = 0;
+//Default weapon equip
+//Populate wheel with aquired weapons
+var i=0;
+var j=0;
+while (j&lt;array_height_2d(obj_player.weapons_grid)-1)
+{
+if (obj_player.weapons_grid[j+1,3]==true)
+{
+weapons_wheel[i] = j+1;
+i++;
+j++;
+}
+else
+j++;
+}
+//Find first available weapon and equip it, if none, do no equip weapon
+obj_player.currently_equipped_weapon = weapons_wheel[0];
 </string>
           </argument>
         </arguments>
@@ -55,31 +70,64 @@ obj_player.currently_equipped_weapon = 1; //Default weapon equip
 
 if (scroll_up) //if you scroll up
 {
-if (weapons_wheel_increment+1 &gt; array_height_2d(obj_player.weapons_grid)-1) //if increment bigger than total number of available weapons
+weapons_wheel = 0; //reset weapon wheel array
+//populate weapons_wheel with aquired weapons
+var i=0;
+var j=0;
+while (j&lt;array_height_2d(obj_player.weapons_grid)-1)
 {
-obj_player.currently_equipped_weapon = obj_player.weapons_grid[1] //start from beginning
-weapons_wheel_increment = 1; //reset increment
+if (obj_player.weapons_grid[j+1,3]==true)
+{
+weapons_wheel[i] = j+1;
+i++;
+j++;
+}
+else
+j++;
+}
+
+if (weapons_wheel_increment+1 &gt;= array_length_1d(weapons_wheel)){
+weapons_wheel_increment = 0; //start from beginning
+obj_player.currently_equipped_weapon = weapons_wheel[weapons_wheel_increment]; //set equipped weapon
 }
 else //else if it is not
 {
-while (obj_player.weapons_grid[weapons_wheel_increment+1,3]!=true)
-weapons_wheel_increment++;
-obj_player.currently_equipped_weapon = weapons_wheel_increment; //increase weel selection
+weapons_wheel_increment++; //increment
+obj_player.currently_equipped_weapon = weapons_wheel[weapons_wheel_increment]; //set equipped weapon
 }
 }
+
 if (scroll_down) //if you scroll down
 {
+weapons_wheel = 0 //reset weapon wheel array
+//populate weapons_wheel with aquired weapons
+var i=0;
+var j=0;
+while (j&lt;array_height_2d(obj_player.weapons_grid)-1)
+{
+if (obj_player.weapons_grid[j+1,3]==true)
+{
+weapons_wheel[i] = j+1;
+i++;
+j++;
+}
+else
+j++;
+}
+
 if (weapons_wheel_increment-1 &lt; 0) //if increment lower than minimum
 {
-obj_player.currently_equipped_weapon = weapons_wheel[array_length_1d(weapons_wheel)-1] //go from top
 weapons_wheel_increment = array_length_1d(weapons_wheel)-1; //reset increment to top
+obj_player.currently_equipped_weapon = weapons_wheel[weapons_wheel_increment]; //set equipped weapon
 }
 else //else if it is not
 {
-obj_player.currently_equipped_weapon = weapons_wheel[weapons_wheel_increment-1]; //lower sleection
-weapons_wheel_increment--; //decrease increment
+weapons_wheel_increment -= 1; //decrement
+obj_player.currently_equipped_weapon = weapons_wheel[weapons_wheel_increment]; //set equipped weapon
 }
 }
+
+
 </string>
           </argument>
         </arguments>
@@ -105,12 +153,12 @@ weapons_wheel_increment--; //decrease increment
             <string>draw_text(700,700,obj_player.currently_equipped_weapon)
 draw_text(700,720,weapons_wheel_increment)
 //draw_text(900,740,obj_player.weapons_grid[currently_equipped_weapon,5])
-for (var i=0;i&lt;array_length_1d(weapons_wheel);i++)
-{
-draw_text(700,740+20*i,weapons_wheel[i])
-draw_text(800,740+20*i,obj_player.weapons_grid[i+1,4])
+//for (var i=0;i&lt;array_length_1d(weapons_wheel);i++)
+//{
+//draw_text(700,740+20*i,weapons_wheel[i])
+//draw_text(800,740+20*i,obj_player.weapons_grid[i+1,4])
 
-}
+//}
 </string>
           </argument>
         </arguments>

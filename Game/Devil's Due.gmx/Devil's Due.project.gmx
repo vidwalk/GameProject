@@ -9,6 +9,7 @@
       <sounds name="Guns">
         <sounds name="Deagle">
           <sound>sound\snd_deagle_simple</sound>
+          <sound>sound\snd_deagle_soul</sound>
         </sounds>
         <sounds name="AutoRifle">
           <sound>sound\snd_rifle_auto</sound>
@@ -126,7 +127,9 @@
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>
-      <object>objects\obj_grunt</object>
+      <objects name="Grunt">
+        <object>objects\obj_grunt</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">

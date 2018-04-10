@@ -42,9 +42,6 @@ draw_text(100,180,"Player found target: "+string(obj_player_fire.target)) //debu
 
 draw_text(100,200,"Player can fire: "+string(obj_player.canfire)); //if player can fire
 draw_text(100,220,"Player firecd: "+string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,5])); //player fire cooldown
-draw_text(100,300,string(audio_emitter_exists(obj_player_fire.emitter1)));
-draw_text(100,320,string(audio_emitter_exists(obj_player_fire.emitter2)));
-
 
 
 </string>
