@@ -48,6 +48,7 @@
     </sprites>
     <sprites name="Bullets">
       <sprite>sprites\spr_bullet_mask</sprite>
+      <sprite>sprites\spr_bullet_possession</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Grunt">
@@ -81,6 +82,10 @@
           <script>scripts\scr_player_notFire.gml</script>
           <script>scripts\scr_player_fire.gml</script>
         </scripts>
+        <scripts name="Possession">
+          <script>scripts\scr_player_notPossessing.gml</script>
+          <script>scripts\scr_player_possessing.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Input ">
         <script>scripts\scr_player_getInput.gml</script>
@@ -92,10 +97,13 @@
     </scripts>
     <scripts name="Bullets">
       <script>scripts\scr_bullet_hitscan.gml</script>
+      <script>scripts\scr_bullet_possession.gml</script>
     </scripts>
     <scripts name="Enemies">
       <scripts name="Grunt">
         <script>scripts\scr_grunt_idle.gml</script>
+        <script>scripts\scr_grunt_possessed.gml</script>
+        <script>scripts\scr_grunt_notPossessed.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -104,6 +112,7 @@
       <object>objects\obj_player</object>
       <object>objects\obj_player_fire</object>
       <object>objects\obj_player_weapons_wheel</object>
+      <object>objects\obj_player_possess</object>
     </objects>
     <objects name="Debug">
       <object>objects\obj_debug</object>
@@ -124,6 +133,7 @@
     </objects>
     <objects name="Bullets">
       <object>objects\obj_bullet</object>
+      <object>objects\obj_bullet_possession</object>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>
