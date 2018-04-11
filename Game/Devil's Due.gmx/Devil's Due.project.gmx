@@ -103,7 +103,6 @@
       <scripts name="Grunt">
         <script>scripts\scr_grunt_idle.gml</script>
         <script>scripts\scr_grunt_possessed.gml</script>
-        <script>scripts\scr_grunt_notPossessed.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -111,7 +110,6 @@
     <objects name="Player">
       <object>objects\obj_player</object>
       <object>objects\obj_player_fire</object>
-      <object>objects\obj_player_weapons_wheel</object>
       <object>objects\obj_player_possess</object>
     </objects>
     <objects name="Debug">
