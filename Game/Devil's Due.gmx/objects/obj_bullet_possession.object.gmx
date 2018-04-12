@@ -27,12 +27,15 @@
             <kind>1</kind>
             <string>//Properties
 creator = 0; //initiate bullet creator
-shot_angle = 0; //initiate angle
 creator_possession_object = 0; //initiate creator possession object
-target_x = 0; //x coord for target
-target_y = 0; //y coord for target
-spd = 7; //bullet speed
-
+range = creator.possession_bullet_range;
+shot_angle = creator.dir; //initiate angle
+init_x = creator.x; //initial x
+init_y = creator.y; //initial y
+target_x = mouse_x; //target mouse x
+target_y = mouse_y; //target mouse y
+move_towards_point(target_x,target_y,creator.possession_bullet_speed); //move towards point
+image_angle = shot_angle; //update angle
 
 </string>
           </argument>
@@ -56,10 +59,18 @@ spd = 7; //bullet speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = spd; //set speed 
-direction = shot_angle; //set angle
-
+            <string>
 enemy_id = instance_place(x,y,obj_enemy); //store hit enemy id
+
+if (place_meeting(x,y,obj_solid)) //If you meet anything solid
+instance_destroy() //Destroy bullet
+
+if (point_distance(init_x,init_y,x,y)&gt;creator.possession_bullet_range) //if bullet exceeds range
+instance_destroy() //Destroy bullet
+
+if (distance_to_point(target_x,target_y) &lt; 1) //if bullet reaches destination
+instance_destroy() //destroy bullet
+
 //If you hit an unpossessed enemy and you are not possessing someone yourself
 if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_possession_object.state_name!="possessing")
     {
@@ -70,20 +81,20 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
         creator.x = enemy_id.x; //Update player coords
         creator.y = enemy_id.y; //update player coords
         creator_possession_object.currently_possessed_enemy = enemy_id; //Store possessed enemy id
-        creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store name of current possession
+        enemy_id = 0; //reset id
+        creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store type of current possession
         
         with (creator_possession_object)
             state_switch("possessing") // Switch player possession state
         instance_destroy(); //Destroy bullet
     }
     
-if (place_meeting(x,y,obj_solid)) //If you meet anything solid
-instance_destroy() //Destroy bullet
+
 //If you hit an unpossessed enemy but you are possessing someone yourself
 if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_possession_object.state_name=="possessing")
 {
     with (creator_possession_object.currently_possessed_enemy)
-        state_switch(creator_possession_object.previous_enemy_state);
+        state_switch(creator_possession_object.previous_enemy_state); //revert current possession to previous state
         
     creator_possession_object.previous_enemy_state = enemy_id.state_name; //store npc state prior to possession
     with (enemy_id)
@@ -91,6 +102,7 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
     creator.x = enemy_id.x; //update player coords
     creator.y = enemy_id.y; //update player coords
     creator_possession_object.currently_possessed_enemy = enemy_id; //Store id of current possessed enemy
+    enemy_id = 0; //reset enemy id
         creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store name of current possessed enemy
     
     with (creator_possession_object)
@@ -99,21 +111,16 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
 } 
     
 //If you don't hit an enemy but you are possessing someone
-if (!enemy_id &amp;&amp; creator_possession_object.state_name="possessing")
+if (!enemy_id &amp;&amp; creator_possession_object.state_name="possessing" &amp;&amp; distance_to_point(target_x,target_y)&lt;1)
 {
     with (creator_possession_object.currently_possessed_enemy)
-        state_switch(creator_possession_object.previous_enemy_state);
+        state_switch(creator_possession_object.previous_enemy_state); //revert current possession to previous state
         
-    creator_possession_object.previous_enemy_state = enemy_id.state_name; //store npc state prior to possession
-    with (enemy_id)
-        state_switch("possessed") //switch npc state to possessed
-    creator.x = enemy_id.x; //update player coords
-    creator.y = enemy_id.y; //update player coords
-    creator_possession_object.currently_possessed_enemy = enemy_id; //Store id of current possessed enemy
-        creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store name of current possessed enemy
-    
-    with (creator_possession_object)
-        state_switch("possessing"); //switch player possession state;
+        creator.x = target_x; //update player coords
+        creator.y = target_y; //update player coords
+        
+        with (creator_possession_object)
+        state_switch("notPossessing"); //switch player possession state;
     instance_destroy(); //destroy bullet
 }
 
