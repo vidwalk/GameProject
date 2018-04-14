@@ -56,6 +56,15 @@ draw_text(100,360,"Bullet target y: "+string(obj_bullet_possession.target_y));
 draw_text(100,380,"Player pos x: "+string(obj_player.x));
 draw_text(100,400,"Player pos y: "+string(obj_player.y));
 
+draw_text(100,440,"Currently possessed enemy id: "+string(obj_player_possess.currently_possessed_enemy));
+draw_text(100,460,"Currently possessed enemy type: "+string(obj_player_possess.currently_possessed_enemy_type));
+with (obj_player_possess)
+draw_text(100,480,"Currently possessed enemy state "+string(currently_possessed_enemy.state_name));
+//draw_text(100,500,"Currently possessed enemy: "+string(obj_player_possess.currently_possessed_enemy));
+
+draw_text(100,500,obj_grunt.state_name)
+
+
 
 
 

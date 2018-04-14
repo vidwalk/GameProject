@@ -13,9 +13,6 @@ state_switch("run");
 //Switch to fire state if pressing button and can fire
 if (lclick && can_fire_bullet)
 {
-obj_player.weapons_grid[2,3] = true;
-obj_player.weapons_grid[3,3] = true;
-obj_player.currently_equipped_weapon = 2;
 with (obj_player_fire)
 state_switch("fire");
 }

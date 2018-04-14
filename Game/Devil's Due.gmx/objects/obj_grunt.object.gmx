@@ -57,6 +57,7 @@ state_init("idle");
 dir = 0; //Initial direction
 hp = 100; //health
 currently_equipped_weapon = 3; //Equip default weapon
+possessor = 0; //Current possessor
 
 //Hit Sounds Array
 hit_sound[0] = snd_bullet_impact_01;

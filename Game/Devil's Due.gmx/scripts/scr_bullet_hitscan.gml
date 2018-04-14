@@ -3,7 +3,8 @@ range = argument[0].weapons_grid[argument[0].currently_equipped_weapon,6];
 randomshot = random_range(-argument[0].weapons_grid[argument[0].currently_equipped_weapon,8],argument[0].weapons_grid[argument[0].currently_equipped_weapon,8]); //init random shot, give each shot a bit of randomness
 while (distance < range) //if distance is lower than range
 {
-    target = collision_line(argument[0].x,argument[0].y,argument[0].x+lengthdir_x(argument[1].distance,argument[0].dir+argument[1].randomshot),argument[0].y+lengthdir_y(argument[1].distance,argument[0].dir+argument[1].randomshot),obj_targetable,false,true) //set target
+    with(argument[2].currently_possessed_enemy)
+    argument[1].target = collision_line(argument[0].x,argument[0].y,argument[0].x+lengthdir_x(argument[1].distance,argument[0].dir+argument[1].randomshot),argument[0].y+lengthdir_y(argument[1].distance,argument[0].dir+argument[1].randomshot),obj_targetable,false,true) //set target
     if (target) //if you  met target
     {
     //Play sound
