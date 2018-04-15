@@ -26,12 +26,17 @@
           <argument>
             <kind>1</kind>
             <string>//Properties
+image_speed = 0.1; //Animation speed
 creator = 0; //initiate bullet creator
 creator_possession_object = 0; //initiate creator possession object
 range = creator.possession_bullet_range;
 shot_angle = creator.dir; //initiate angle
 init_x = creator.x; //initial x
 init_y = creator.y; //initial y
+
+current_x = creator.x; //current shooter pos
+current_y = creator.y; //current shooter pos
+
 image_angle = shot_angle; //update angle
 speed = creator.possession_bullet_speed; //update speed
 direction = shot_angle; //update direction
@@ -57,7 +62,8 @@ direction = shot_angle; //update direction
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>current_x = creator.x; //always update current x pos
+current_y = creator.y; //always update current y pos
 enemy_id = instance_place(x,y,obj_enemy); //store hit enemy id
 
 if (place_meeting(x,y,obj_solid)) //If you meet anything solid
@@ -92,8 +98,8 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
     enemy_id.possessor = creator; //store creator in enemy id
     with (creator_possession_object.currently_possessed_enemy)
         {
-        fix_x = other.init_x;
-        fix_y = other.init_y;
+        fix_x = other.current_x;
+        fix_y = other.current_y;
         state_switch_previous(); //revert current possession to previous state
         }
         

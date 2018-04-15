@@ -61,6 +61,9 @@ draw_text(100,480,"Currently possessed enemy state "+string(currently_possessed_
 
 draw_text(100,500,obj_grunt.state_name)
 
+if (instance_exists(obj_bullet_possession))
+draw_text(100,520,obj_bullet_possession.image_index);
+
 
 
 
