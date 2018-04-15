@@ -54,7 +54,6 @@ state_init("notPossessing");
           <argument>
             <kind>1</kind>
             <string>///Properties
-previous_enemy_state = 0; //State of enemy prior to possession
 currently_possessed_enemy = 0; //Id of current possessed enemy
 currently_possessed_enemy_type = 0; //Type of currently possessed enemy
 </string>

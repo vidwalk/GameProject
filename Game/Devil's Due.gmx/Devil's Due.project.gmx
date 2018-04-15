@@ -105,6 +105,10 @@
         <script>scripts\scr_grunt_possessed.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Mechanics">
+      <script>scripts\scr_gain_weapon.gml</script>
+      <script>scripts\scr_lose_weapon.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="Player">
