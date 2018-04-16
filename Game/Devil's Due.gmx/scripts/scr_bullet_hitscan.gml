@@ -12,14 +12,16 @@ while (distance < range) //if distance is lower than range
     
     bullet = instance_create(argument[0].x+lengthdir_x(distance,argument[0].dir+randomshot),argument[0].y+lengthdir_y(distance,argument[0].dir+randomshot),obj_bullet) //create bullet on collision point
     bullet.creator = argument[0];
+    bullet.creator_fire_object = argument[1];
     break;
     }
     else
     distance=distance+1; //else increase the distance
 }
 if (!target) //haven't met any target
-instance_create(argument[0].x+lengthdir_x(range,argument[0].dir+randomshot),argument[0].y+lengthdir_y(range,argument[0].dir+randomshot),obj_bullet) //create bullet with default range
-
+bullet = instance_create(argument[0].x+lengthdir_x(range,argument[0].dir+randomshot),argument[0].y+lengthdir_y(range,argument[0].dir+randomshot),obj_bullet) //create bullet with default range
+bullet.creator = argument[0];
+bullet.creator_fire_object = argument[1];
 //Play sound
 audio_play_sound_at(argument[0].weapons_grid[argument[0].currently_equipped_weapon,7],argument[0].x,argument[0].y,0,100,600,1,false,1);
 

@@ -60,11 +60,16 @@
     <sprites name="Bullets">
       <sprite>sprites\spr_bullet_mask</sprite>
       <sprite>sprites\spr_bullet_possession</sprite>
+      <sprite>sprites\spr_bullet</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Grunt">
         <sprite>sprites\spr_grunt_run</sprite>
         <sprite>sprites\spr_grunt_idle</sprite>
+      </sprites>
+      <sprites name="GruntCamo">
+        <sprite>sprites\spr_gruntCamo_idle</sprite>
+        <sprite>sprites\spr_gruntCamo_run</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -157,6 +162,9 @@
       <object>objects\obj_enemy</object>
       <objects name="Grunt">
         <object>objects\obj_grunt</object>
+      </objects>
+      <objects name="GruntCamo">
+        <object>objects\obj_gruntCamo</object>
       </objects>
     </objects>
   </objects>

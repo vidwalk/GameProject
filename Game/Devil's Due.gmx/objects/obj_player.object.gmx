@@ -344,7 +344,7 @@ scr_player_getInput(); //get input
 
 if (scroll_up)
 {
-    if (currently_equipped_weapon == weapons_total)
+    if (currently_equipped_weapon == weapons_total || (currently_equipped_weapon &lt; weapons_total &amp;&amp; currently_equipped_weapon &gt; 1))
     {
         var i=1;
         while (weapons_grid[i,3] == false &amp;&amp; i&lt;currently_equipped_weapon)
