@@ -31,9 +31,44 @@ state_machine_init();
 //Define States
 state_create("idle",scr_grunt_idle);
 state_create("possessed",scr_grunt_possessed);
-state_create("notPossessed",scr_grunt_notPossessed);
 //Default State
 state_init("idle");
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Properties
+dir = 0; //Initial direction
+hp = 100; //health
+currently_equipped_weapon = 3; //Equip default weapon
+possessor = 0; //Current possessor
+fix_x = x; //x fix for possession
+fix_y = y; //y fix for possession
+
+
+//Hit Sounds Array
+hit_sound[0] = snd_bullet_impact_01;
+hit_sound[1] = snd_bullet_impact_01;
+//hit_sound[2] = snd_grunt_hit_03;
+//hit_sound[3] = snd_grunt_hit_04;
+//hit_sound[4] = snd_grunt_hit_05;
+//hit_sound[5] = snd_grunt_hit_06;
 </string>
           </argument>
         </arguments>
@@ -103,38 +138,6 @@ weapons_grid[3,8] = 5;
 
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Properties
-dir = 0; //Initial direction
-hp = 100; //health
-currently_equipped_weapon = 3; //Equip default weapon
-
-//Hit Sounds Array
-hit_sound[0] = snd_bullet_impact_01;
-hit_sound[1] = snd_bullet_impact_01;
-//hit_sound[2] = snd_grunt_hit_03;
-//hit_sound[3] = snd_grunt_hit_04;
-//hit_sound[4] = snd_grunt_hit_05;
-//hit_sound[5] = snd_grunt_hit_06;
 </string>
           </argument>
         </arguments>

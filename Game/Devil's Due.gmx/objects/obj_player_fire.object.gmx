@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -54,8 +54,8 @@ state_init("notFire");
           <argument>
             <kind>1</kind>
             <string>///Variable init    
-distance = 0;
-target = 0;
+distance = 0; //distance
+target = 0; //target
 </string>
           </argument>
         </arguments>

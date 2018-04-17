@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Initializations
 creator = 0; //initial bullet creator
+creator_fire_object = 0; //initial bullet creator's fire object
 shot_angle = creator.dir; //save initial angle
 shot_damage = creator.weapons_grid[creator.currently_equipped_weapon,4]; //set shot damage
 </string>
@@ -88,8 +89,14 @@ instance_destroy();
             <string>//Draw Bullet
 draw_set_alpha(image_alpha); //Set drawage visibility to current image alha
 draw_set_blend_mode(bm_add); //set blending mode
+draw_sprite_ext(spr_bullet,0,creator.x+lengthdir_x(15,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(15,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1);
+draw_sprite_ext(spr_bullet,2,creator.x+lengthdir_x(creator_fire_object.distance-4,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance-4,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1);
 
-draw_line_width_colour(obj_player.x,obj_player.y,obj_player.x+lengthdir_x(obj_player_fire.distance,shot_angle+obj_player_fire.randomshot),obj_player.y+lengthdir_y(obj_player_fire.distance,shot_angle+obj_player_fire.randomshot),2,c_yellow,c_orange); //draw shot
+for (var i=1; i&lt;creator_fire_object.distance/4;i++)
+draw_sprite_ext(spr_bullet,1,creator.x+lengthdir_x(4*i,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(3*i,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1)
+
+
+//draw_line_width_colour(creator.x,creator.y,creator.x+lengthdir_x(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),2,c_yellow,c_orange); //draw shot
 draw_set_blend_mode(bm_normal); //reset blending mode
 draw_set_alpha(1); //reset alpha
 

@@ -6,6 +6,9 @@ key_right = keyboard_check(ord('D')) //Right
 
 lclick = mouse_check_button(mb_left); //Left Click
 ctrl = keyboard_check(vk_control); //Ctrl
+v = keyboard_check(ord('V')) //V
 
 scroll_up = mouse_wheel_up(); //scroll up
 scroll_down = mouse_wheel_down(); //scroll down
+
+

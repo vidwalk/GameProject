@@ -15,6 +15,12 @@
           <sound>sound\snd_rifle_auto</sound>
         </sounds>
       </sounds>
+      <sounds name="Footsteps">
+        <sounds name="Concrete">
+          <sound>sound\snd_player_footstep_concrete_01</sound>
+          <sound>sound\snd_player_footstep_concrete_02</sound>
+        </sounds>
+      </sounds>
     </sounds>
     <sounds name="Bullet">
       <sound>sound\snd_bullet_impact_01</sound>
@@ -33,12 +39,17 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="Boxes">
+      <sprite>sprites\spr_box_01</sprite>
+      <sprite>sprites\spr_box_02</sprite>
+    </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_player_idle</sprite>
       <sprite>sprites\spr_player_run</sprite>
     </sprites>
     <sprites name="Walls">
       <sprite>sprites\spr_wall_concrete_01</sprite>
+      <sprite>sprites\spr_wall_concrete_02</sprite>
     </sprites>
     <sprites name="Doors">
       <sprite>sprites\spr_door_purple</sprite>
@@ -49,17 +60,23 @@
     <sprites name="Bullets">
       <sprite>sprites\spr_bullet_mask</sprite>
       <sprite>sprites\spr_bullet_possession</sprite>
+      <sprite>sprites\spr_bullet</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Grunt">
         <sprite>sprites\spr_grunt_run</sprite>
         <sprite>sprites\spr_grunt_idle</sprite>
       </sprites>
+      <sprites name="GruntCamo">
+        <sprite>sprites\spr_gruntCamo_idle</sprite>
+        <sprite>sprites\spr_gruntCamo_run</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
-      <background>background\bg_interior_concrete</background>
+      <background>background\ts_interior_concrete_01</background>
+      <background>background\ts_interior_concrete_02</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -103,20 +120,26 @@
       <scripts name="Grunt">
         <script>scripts\scr_grunt_idle.gml</script>
         <script>scripts\scr_grunt_possessed.gml</script>
-        <script>scripts\scr_grunt_notPossessed.gml</script>
       </scripts>
+    </scripts>
+    <scripts name="Mechanics">
+      <script>scripts\scr_gain_weapon.gml</script>
+      <script>scripts\scr_lose_weapon.gml</script>
+    </scripts>
+    <scripts name="Functionality">
+      <script>scripts\scr_tile_footsteps.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\obj_player</object>
       <object>objects\obj_player_fire</object>
-      <object>objects\obj_player_weapons_wheel</object>
       <object>objects\obj_player_possess</object>
     </objects>
-    <objects name="Debug">
+    <objects name="Game Control">
       <object>objects\obj_debug</object>
       <object>objects\obj_game_control</object>
+      <object>objects\obj_sound_control</object>
     </objects>
     <objects name="Solids">
       <object>objects\obj_targetable</object>
@@ -139,6 +162,9 @@
       <object>objects\obj_enemy</object>
       <objects name="Grunt">
         <object>objects\obj_grunt</object>
+      </objects>
+      <objects name="GruntCamo">
+        <object>objects\obj_gruntCamo</object>
       </objects>
     </objects>
   </objects>

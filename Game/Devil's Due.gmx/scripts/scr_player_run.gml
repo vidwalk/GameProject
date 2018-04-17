@@ -20,11 +20,13 @@ state_switch("idle");
 scr_player_collision();
 
 //Switch to fire state if pressing button and can fire
-if (lclick && canfire)
+if (lclick && can_fire_bullet)
 {
 with (obj_player_fire)
 state_switch("fire");
 }
+//Play footsteps
+scr_tile_footsteps(obj_player);
 
 
 
