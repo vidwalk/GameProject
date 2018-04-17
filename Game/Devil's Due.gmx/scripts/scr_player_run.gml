@@ -19,7 +19,8 @@ state_switch("idle");
 //Verify collision then move
 scr_player_collision();
 
-//Switch to fire state if pressing button and can fire
+
+//Switch to fire state if pressing button and can fire 
 if (lclick && can_fire_bullet)
 {
 with (obj_player_fire)

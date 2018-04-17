@@ -89,14 +89,15 @@ instance_destroy();
             <string>//Draw Bullet
 draw_set_alpha(image_alpha); //Set drawage visibility to current image alha
 draw_set_blend_mode(bm_add); //set blending mode
-draw_sprite_ext(spr_bullet,0,creator.x+lengthdir_x(15,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(15,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1);
-draw_sprite_ext(spr_bullet,2,creator.x+lengthdir_x(creator_fire_object.distance-4,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance-4,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1);
 
-for (var i=1; i&lt;creator_fire_object.distance/4;i++)
-draw_sprite_ext(spr_bullet,1,creator.x+lengthdir_x(4*i,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(3*i,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1)
+
+bulletWidth = sprite_get_width(spr_bullet);
+for (var i=1; i&lt;=creator_fire_object.distance/bulletWidth;i++)
+draw_sprite_ext(spr_bullet,1,creator.x+lengthdir_x(i*bulletWidth,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(i*bulletWidth,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1)
 
 
 //draw_line_width_colour(creator.x,creator.y,creator.x+lengthdir_x(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),2,c_yellow,c_orange); //draw shot
+//draw_line_width_colour(creator.x,creator.y,creator.x+lengthdir_x(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),2,c_red,c_yellow); //draw shot
 draw_set_blend_mode(bm_normal); //reset blending mode
 draw_set_alpha(1); //reset alpha
 

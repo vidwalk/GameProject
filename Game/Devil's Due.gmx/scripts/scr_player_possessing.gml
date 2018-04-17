@@ -11,7 +11,7 @@ if (v)
 {
 with (obj_player_possess)
 state_switch("notPossessing");
-scr_lose_weapon(obj_player,currently_possessed_enemy.currently_equipped_weapon);
+scr_lose_weapon(obj_player,currently_possessed_enemy);
 with(obj_player_possess.currently_possessed_enemy)
 instance_destroy()
 }
