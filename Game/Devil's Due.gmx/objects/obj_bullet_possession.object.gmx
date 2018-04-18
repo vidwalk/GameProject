@@ -85,7 +85,7 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
         creator.y = enemy_id.y; //update player coords
         creator_possession_object.currently_possessed_enemy = enemy_id; //Store possessed enemy id
         creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store type of current possession
-        scr_gain_weapon(creator,enemy_id.currently_equipped_weapon); //gain new weapon
+        scr_gain_weapon(creator,enemy_id); //gain new weapon
         with (creator_possession_object)
             state_switch("possessing") // Switch player possession state
         instance_destroy(); //Destroy bullet
@@ -108,10 +108,10 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
     creator.x = enemy_id.x; //update player coords
     creator.y = enemy_id.y; //update player coords
     with(creator_possession_object)
-    scr_lose_weapon(obj_bullet_possession.creator,currently_possessed_enemy.currently_equipped_weapon); //lose previous weapon
+    scr_lose_weapon(obj_bullet_possession.creator,currently_possessed_enemy); //lose previous weapon
     creator_possession_object.currently_possessed_enemy = enemy_id; //Store id of current possessed enemy
         creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store name of current possessed enemy
-    scr_gain_weapon(creator,enemy_id.currently_equipped_weapon);//gain new weapon
+    scr_gain_weapon(creator,enemy_id);//gain new weapon
     instance_destroy(); //destroy bullet
 } 
 

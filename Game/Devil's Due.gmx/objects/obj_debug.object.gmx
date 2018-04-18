@@ -59,10 +59,12 @@ if (instance_exists(currently_possessed_enemy))
 draw_text(100,480,"Currently possessed enemy state "+string(currently_possessed_enemy.state_name));
 //draw_text(100,500,"Currently possessed enemy: "+string(obj_player_possess.currently_possessed_enemy));
 
-draw_text(100,500,obj_grunt.state_name)
+//draw_text(100,500,obj_grunt.state_name)
 
 if (instance_exists(obj_bullet_possession))
 draw_text(100,520,obj_bullet_possession.image_index);
+
+draw_text(100,540,obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]); 
 
 
 

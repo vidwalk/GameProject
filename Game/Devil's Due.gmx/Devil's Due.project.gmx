@@ -10,9 +10,14 @@
         <sounds name="Deagle">
           <sound>sound\snd_deagle_simple</sound>
           <sound>sound\snd_deagle_soul</sound>
+          <sound>sound\snd_deagle_noammo</sound>
         </sounds>
         <sounds name="AutoRifle">
           <sound>sound\snd_rifle_auto</sound>
+          <sound>sound\snd_rifle_noammo</sound>
+        </sounds>
+        <sounds name="MachineGun">
+          <sound>sound\snd_machinegun_noammo</sound>
         </sounds>
       </sounds>
       <sounds name="Footsteps">
@@ -46,6 +51,7 @@
     <sprites name="Player">
       <sprite>sprites\spr_player_idle</sprite>
       <sprite>sprites\spr_player_run</sprite>
+      <sprite>sprites\spr_player_fire</sprite>
     </sprites>
     <sprites name="Walls">
       <sprite>sprites\spr_wall_concrete_01</sprite>
