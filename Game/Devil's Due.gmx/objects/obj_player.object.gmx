@@ -141,7 +141,10 @@ weapons_grid[3,8] = 5;
 weapons_grid[1,9] = snd_deagle_noammo;
 weapons_grid[2,9] = snd_rifle_noammo;
 weapons_grid[3,9] = snd_machinegun_noammo;
-
+//Bullet sprite
+weapons_grid[1,10] = spr_deagle_bullet;
+weapons_grid[2,10] = spr_rifle_bullet;
+weapons_grid[3,10] = spr_machinegun_bullet;
 
 
 

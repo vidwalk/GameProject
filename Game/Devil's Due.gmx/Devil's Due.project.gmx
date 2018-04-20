@@ -60,13 +60,14 @@
     <sprites name="Doors">
       <sprite>sprites\spr_door_purple</sprite>
       <sprite>sprites\spr_door_green</sprite>
-      <sprite>sprites\spr_door_yellow</sprite>
-      <sprite>sprites\spr_door_blue</sprite>
+      <sprite>sprites\spr_door_red</sprite>
     </sprites>
     <sprites name="Bullets">
       <sprite>sprites\spr_bullet_mask</sprite>
       <sprite>sprites\spr_bullet_possession</sprite>
-      <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_rifle_bullet</sprite>
+      <sprite>sprites\spr_deagle_bullet</sprite>
+      <sprite>sprites\spr_machinegun_bullet</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Grunt">
@@ -126,6 +127,7 @@
       <scripts name="Grunt">
         <script>scripts\scr_grunt_idle.gml</script>
         <script>scripts\scr_grunt_possessed.gml</script>
+        <script>scripts\scr_grunt_roam.gml</script>
       </scripts>
     </scripts>
     <scripts name="Mechanics">
@@ -134,6 +136,10 @@
     </scripts>
     <scripts name="Functionality">
       <script>scripts\scr_tile_footsteps.gml</script>
+    </scripts>
+    <scripts name="Doors">
+      <script>scripts\scr_door_closed.gml</script>
+      <script>scripts\scr_door_open.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -146,6 +152,7 @@
       <object>objects\obj_debug</object>
       <object>objects\obj_game_control</object>
       <object>objects\obj_sound_control</object>
+      <object>objects\obj_grid_ai</object>
     </objects>
     <objects name="Solids">
       <object>objects\obj_targetable</object>
@@ -155,7 +162,6 @@
       </objects>
       <objects name="Doors">
         <object>objects\obj_door_purple</object>
-        <object>objects\obj_door_blue</object>
         <object>objects\obj_door_yellow</object>
         <object>objects\obj_door_green</object>
       </objects>

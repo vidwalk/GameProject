@@ -1,4 +1,4 @@
-
+ 
 
 if (argument[0].weapons_grid[argument[0].currently_equipped_weapon,2]>0) //check ammo
 {
