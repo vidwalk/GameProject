@@ -55,8 +55,8 @@ cell_width = 0; //Cell width;
           <argument>
             <kind>1</kind>
             <string>///New AI Grid when any room starts
-cell_width = 16; //Cell Width of grid
-cell_height = 16; //Cell Height of grid
+cell_width = 64; //Cell Width of grid
+cell_height = 64; //Cell Height of grid
 
 hcells = room_width/cell_width; //Number of horizontalcells
 vcells = room_height/cell_height; //Number of verticalcells

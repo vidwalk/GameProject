@@ -136,6 +136,7 @@
     </scripts>
     <scripts name="Functionality">
       <script>scripts\scr_tile_footsteps.gml</script>
+      <script>scripts\scr_find_free_space.gml</script>
     </scripts>
     <scripts name="Doors">
       <script>scripts\scr_door_closed.gml</script>

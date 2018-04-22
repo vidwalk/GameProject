@@ -31,6 +31,7 @@ state_machine_init();
 //Define States
 state_create("idle",scr_grunt_idle);
 state_create("possessed",scr_grunt_possessed);
+state_create("roam",scr_grunt_roam);    
 //Default State
 state_init("idle");
 </string>
@@ -60,8 +61,16 @@ currently_equipped_weapon = 3; //Equip default weapon
 possessor = 0; //Current possessor
 fix_x = x; //x fix for possession
 fix_y = y; //y fix for possession
+spd = 2; //speed
 
 path = 0; //pathfinding var
+idle_timer = 3; //amount of seconds in idle state
+idle_timer_done = false; //is the timer done?
+
+//Pathfinder
+path = path_add(); //Add default path
+patrol_x2 = 0; //Goal point of patrol X
+patrol_y2 = 0; //Goal point of patrol Y
 
 
 
@@ -172,6 +181,31 @@ hit_sound[1] = snd_bullet_impact_01;
 //hit_sound[3] = snd_grunt_hit_04;
 //hit_sound[4] = snd_grunt_hit_05;
 //hit_sound[5] = snd_grunt_hit_06;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///idle timer alarm
+idle_timer_done = true;
+
 </string>
           </argument>
         </arguments>

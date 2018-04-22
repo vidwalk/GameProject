@@ -65,6 +65,7 @@ if (instance_exists(obj_bullet_possession))
 draw_text(100,520,obj_bullet_possession.image_index);
 
 draw_text(100,540,obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]); 
+draw_text(100,560,obj_grunt.state_name)
 
 
 
@@ -100,6 +101,20 @@ for (var i = 0; i&lt;room_width;i+=obj_grid_ai.cell_width)
 for (i = 0; i&lt;  room_height; i+=obj_grid_ai.cell_height)
 draw_line(0,i,room_width,i)
 draw_set_alpha(1);
+
+
+//Security Debug
+with (obj_grunt)
+{
+draw_set_color(c_red)
+//draw_circle(x,y,alert_range,1)
+draw_set_color(c_blue)
+//draw_circle(x,y,engaged_range,1)
+draw_set_color(c_red)
+draw_circle(x,y,7,0)
+draw_circle(patrol_x2*obj_grid_ai.cell_width-obj_grid_ai.cell_width/2,patrol_y2*obj_grid_ai.cell_height-obj_grid_ai.cell_height/2,7,0)
+draw_line(x,y,patrol_x2*obj_grid_ai.cell_width-obj_grid_ai.cell_width/2,patrol_y2*obj_grid_ai.cell_height-obj_grid_ai.cell_height/2)
+}
 
 </string>
           </argument>
