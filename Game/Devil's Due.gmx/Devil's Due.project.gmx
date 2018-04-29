@@ -121,6 +121,7 @@
     </scripts>
     <scripts name="Bullets">
       <script>scripts\scr_bullet_hitscan.gml</script>
+      <script>scripts\scr_enemy_bullet_hitscan.gml</script>
       <script>scripts\scr_bullet_possession.gml</script>
     </scripts>
     <scripts name="Enemies">
@@ -128,6 +129,10 @@
         <script>scripts\scr_grunt_idle.gml</script>
         <script>scripts\scr_grunt_possessed.gml</script>
         <script>scripts\scr_grunt_roam.gml</script>
+        <script>scripts\scr_grunt_dazed.gml</script>
+        <script>scripts\scr_grunt_patrol.gml</script>
+        <script>scripts\scr_grunt_engaged.gml</script>
+        <script>scripts\scr_grunt_alert.gml</script>
       </scripts>
     </scripts>
     <scripts name="Mechanics">
@@ -158,6 +163,7 @@
     <objects name="Solids">
       <object>objects\obj_targetable</object>
       <object>objects\obj_solid</object>
+      <object>objects\obj_player_and_walls</object>
       <objects name="Walls">
         <object>objects\obj_wall_concrete</object>
       </objects>

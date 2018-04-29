@@ -28,8 +28,10 @@
             <string>///Debugging
 //Player state debugging
 draw_set_color(c_blue); //Set color
+draw_set_alpha(1);
 with (obj_player)
 {
+draw_text(400,100,id);
 draw_text(100,100,"Player state: "+string(state_name)); //Player state
 draw_text(100,140,"HSpeed: "+string(hsp)+ " " + "VSpeed: "+string(vsp)); //Player speed
 }
@@ -65,8 +67,43 @@ if (instance_exists(obj_bullet_possession))
 draw_text(100,520,obj_bullet_possession.image_index);
 
 draw_text(100,540,obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]); 
+if (instance_exists(obj_grunt))
+{
 draw_text(100,560,obj_grunt.state_name)
 
+draw_text(100,580,obj_grunt.dir)
+}
+draw_text(100,600,obj_player.dir)
+
+if (instance_exists(obj_bullet))
+{
+with (obj_bullet)
+{
+if (instance_exists(creator))
+{
+draw_text(100,620,creator)
+draw_text(100,640,shot_angle)
+draw_text(100,660,creator.dir)
+draw_text(300,660,shot_damage)
+}
+}
+}
+
+with (obj_grunt)
+{
+draw_text(100,680,x)
+draw_text(300,680,patrol_x1)
+draw_text(100,700,y)
+draw_text(300,700,patrol_y1)
+draw_text(100,720,"Enemy HP: "+string(hp))
+draw_text(300,720,"vision: "+string(vision))
+}
+with (obj_player)
+{
+draw_text(100,740,"Player HP: "+string(hp))
+draw_text(100,760,"Current wep: "+string(currently_equipped_weapon))
+draw_text(100,780,"Last weapon: "+string(last_weapon));
+}
 
 
 
@@ -114,7 +151,22 @@ draw_set_color(c_red)
 draw_circle(x,y,7,0)
 draw_circle(patrol_x2*obj_grid_ai.cell_width-obj_grid_ai.cell_width/2,patrol_y2*obj_grid_ai.cell_height-obj_grid_ai.cell_height/2,7,0)
 draw_line(x,y,patrol_x2*obj_grid_ai.cell_width-obj_grid_ai.cell_width/2,patrol_y2*obj_grid_ai.cell_height-obj_grid_ai.cell_height/2)
+draw_set_color(c_purple)
+draw_line(patrol_x1,patrol_y1,patrol_x2,patrol_y2)
+draw_set_color(c_green)
+draw_line(x,y,patrol_x1,patrol_y1)
+
+//combat
+draw_set_color(c_red)
+draw_set_alpha(0.1)
+draw_circle(x,y,engage_range,0)
+draw_set_alpha(1)
+
+
 }
+
+if (instance_exists(obj_bullet) &amp;&amp; instance_exists(obj_grunt))
+draw_line(obj_grunt.x,obj_grunt.y,obj_grunt.x+lengthdir_x(obj_grunt.distance,obj_grunt.dir+obj_grunt.randomshot),obj_grunt.y+lengthdir_y(obj_grunt.distance,obj_grunt.dir+obj_grunt.randomshot)) //set target
 
 </string>
           </argument>

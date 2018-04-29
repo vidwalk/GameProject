@@ -100,7 +100,7 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
         {
         fix_x = other.current_x;
         fix_y = other.current_y;
-        state_switch_previous(); //revert current possession to previous state
+        state_switch("dazed"); //revert current possession to dazed state
         }
         
     with (enemy_id)
