@@ -46,6 +46,7 @@ can_fire_possession_bullet = true; //Can possess boolean
 //Misc
 currently_equipped_weapon = 1; //Default Equip
 last_weapon = 0;
+weapon_boolean = false;
 
 
 
@@ -356,13 +357,18 @@ audio_listener_orientation(0,0,1000,0,-1,0);
             <string>///Weapons Wheel
 //If you are at either end of the matrix, search until your currently equipped weapon, if not, search until the end
 scr_player_getInput(); //get input
+
+
 if (scroll_up)
 {
 last_weapon = currently_equipped_weapon;
-while (weapons_grid[last_weapon,3] == true &amp;&amp; last_weapon &lt; weapons_total)
-last_weapon++;
-if (weapons_grid[last_weapon,3] == false)
-last_weapon--
+var i = 1;
+while (i &lt; weapons_total)
+{
+i++
+if (weapons_grid[i,3] == true)
+last_weapon = i;
+}
 
     if (currently_equipped_weapon == last_weapon)
     {
@@ -389,6 +395,7 @@ last_weapon--
         currently_equipped_weapon = i;
     }
 }
+
 
 if (scroll_down)
 {

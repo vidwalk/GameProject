@@ -27,14 +27,14 @@
             <kind>1</kind>
             <string>///Properties
 dir = 0; //Initial direction
-hp = 30; //health
+hp = 15; //health
 currently_equipped_weapon = 3; //Equip default weapon
-alert_range = 300; //engage range
-engage_range = 250; // fire range
-alert_chase_stop = false; //when to stop chasing
+alert_range = 225; //alert range
+engage_range = 150; // fire range
+
 alert_chase_timer = 4; //how long to chase
 
-spd = 2; //speed
+spd = 2.5; //speed
 
 //Possession vars
 possessor = 0; //Current possessor
@@ -44,7 +44,7 @@ fix_x = x; //x fix for possession
 fix_y = y; //y fix for possession
 
 //Dazed after possession
-dazed_timer = 2;
+dazed_timer = 2.5;
 dazed_timer_done = false;
 
 //set default state
@@ -75,6 +75,8 @@ firing_random_cooldown = 8;
 vision = 0;
 player_x = 0;
 player_y = 0;
+
+alert_chase_stop = false; //when to stop chasing
 
 
 
@@ -240,10 +242,8 @@ hit_sound[1] = snd_bullet_impact_01;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (distance_to_object(obj_player) &lt;= alert_range)
-alarm[2] = room_speed*alert_chase_timer;
-else
-alert_chase_stop = true;
+            <string>alert_chase_stop = true;
+
 </string>
           </argument>
         </arguments>

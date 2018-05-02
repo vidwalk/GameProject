@@ -27,10 +27,10 @@ possessor = 0; //removes any previous possessors
 
 //dir = irandom_range(0,360); //give it a random direction everytime it enters idle state
 }
-
+vision = collision_line(x,y,obj_player.x,obj_player.y,obj_solid,0,1);
 //If player comes too close, engage
-if (distance_to_object(obj_player)<=engage_range && state_name == "idle")
-state_switch("engaged");
+if (distance_to_object(obj_player)<=alert_range && state_name == "idle" && !vision)
+state_switch("alert");
 
 
 //If you stay idle for too long change to roam

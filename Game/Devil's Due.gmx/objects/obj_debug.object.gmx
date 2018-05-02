@@ -97,6 +97,9 @@ draw_text(100,700,y)
 draw_text(300,700,patrol_y1)
 draw_text(100,720,"Enemy HP: "+string(hp))
 draw_text(300,720,"vision: "+string(vision))
+draw_text(600,300,"alert_timer: "+string(alarm_get(alarm[2])));
+draw_text(600,320,"alert boolean: "+string(alert_chase_stop))
+draw_text(600,340,"vision: "+string(vision))
 }
 with (obj_player)
 {
@@ -141,7 +144,7 @@ draw_set_alpha(1);
 
 
 //Security Debug
-with (obj_grunt)
+with (obj_enemy)
 {
 draw_set_color(c_red)
 //draw_circle(x,y,alert_range,1)
@@ -160,6 +163,8 @@ draw_line(x,y,patrol_x1,patrol_y1)
 draw_set_color(c_red)
 draw_set_alpha(0.1)
 draw_circle(x,y,engage_range,0)
+draw_set_color(c_blue)
+draw_circle(x,y,alert_range,0)
 draw_set_alpha(1)
 
 
