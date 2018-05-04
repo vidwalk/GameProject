@@ -29,8 +29,10 @@
 dir = 0; //Initial direction
 hp = 15; //health
 currently_equipped_weapon = 3; //Equip default weapon
-alert_range = 225; //alert range
+alert_range = 225; //alert rangewdds
 engage_range = 150; // fire range
+insanity_rate = 3; //insanity per second
+insanity = 0; // initial insanity
 
 alert_chase_timer = 4; //how long to chase
 
@@ -175,7 +177,7 @@ weapons_grid[3,7] = snd_deagle_simple;
 //Accuracy
 weapons_grid[1,8] = 2;
 weapons_grid[2,8] = 9;
-weapons_grid[3,8] = 10;
+weapons_grid[3,8] = 13;
 //NoAmmo Sound
 weapons_grid[1,9] = snd_deagle_noammo;
 weapons_grid[2,9] = snd_rifle_noammo;
@@ -220,6 +222,38 @@ hit_sound[1] = snd_bullet_impact_01;
 //hit_sound[3] = snd_grunt_hit_04;
 //hit_sound[4] = snd_grunt_hit_05;
 //hit_sound[5] = snd_grunt_hit_06;
+//Footsteps array
+tile_layers = 1;
+footsteps_can_play = true;
+footsteps_audio_cd = 0.5;
+//Concrete
+footsteps_array[0,0] = 1000000; 
+footsteps_array[1,0] = snd_grunt_walk_01;
+footsteps_array[2,0] = snd_grunt_walk_02;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (obj_player.possession_charges &lt; obj_player.possession_charges_max)
+obj_player.possession_charges++;
 </string>
           </argument>
         </arguments>
@@ -339,7 +373,9 @@ state_update();
             <kind>1</kind>
             <string>//State Execute
 state_execute();
-
+//Lower insanity
+if (insanity &gt; 0 &amp;&amp; state_name != "possessed")
+insanity-=insanity_rate/room_speed;
 </string>
           </argument>
         </arguments>

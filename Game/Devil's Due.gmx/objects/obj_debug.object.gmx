@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Debugging
+
+
 //Player state debugging
 draw_set_color(c_blue); //Set color
 draw_set_alpha(1);
@@ -133,15 +135,27 @@ draw_text(100,780,"Last weapon: "+string(last_weapon));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// AI Grid Debugging
-draw_set_alpha(0.4);
+            <string>with (obj_targetable)
+{
+    draw_set_alpha(0.2);
+    draw_set_color(c_red);
+    if (mp_grid_get_cell(global.grid_ai,x/sprite_width,y/sprite_height))
+    draw_rectangle(x-sprite_width/2,y-sprite_width/2,x+sprite_width/2,y+sprite_width/2,0)  
+}
 
-for (var i = 0; i&lt;room_width;i+=obj_grid_ai.cell_width)
-        draw_line(i,0,i,room_height);
-for (i = 0; i&lt;  room_height; i+=obj_grid_ai.cell_height)
-draw_line(0,i,room_width,i)
+with (obj_grid_ai)
+{
 draw_set_alpha(1);
-
+draw_set_colour(c_blue);
+for (var i = 0; i &lt; room_width; i += 64;)
+    {
+    draw_line_width(i, 0, i, room_height, 3);
+    }
+for (var j = 0; j &lt; room_width; j += 64;)
+    {
+    draw_line_width(0, j, room_width, j, 3);
+    }
+}   
 
 //Security Debug
 with (obj_enemy)

@@ -36,8 +36,9 @@ dir = point_direction(x,y,patrol_x2,patrol_y2);
 if (distance_to_object(obj_player)<=alert_range && state_name == "patrol")
 state_switch("alert");
 
-
 //Death
 if (hp <= 0)
 instance_destroy();
-        
+
+//Play footsteps
+scr_tile_footsteps(obj_grunt);

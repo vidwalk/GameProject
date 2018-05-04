@@ -86,6 +86,7 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
         creator_possession_object.currently_possessed_enemy = enemy_id; //Store possessed enemy id
         creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store type of current possession
         scr_gain_weapon(creator,enemy_id); //gain new weapon
+        creator.possession_shield += enemy_id.hp; // gain enemy's life as shield
         with (creator_possession_object)
             state_switch("possessing") // Switch player possession state
         instance_destroy(); //Destroy bullet
@@ -98,20 +99,24 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
     enemy_id.possessor = creator; //store creator in enemy id
     with (creator_possession_object.currently_possessed_enemy)
         {
+        
         fix_x = other.current_x;
         fix_y = other.current_y;
         state_switch("dazed"); //revert current possession to dazed state
         }
+        hp = creator.possession_shield; //set previous possession's hp to current shield amount
         
     with (enemy_id)
         state_switch("possessed") //switch npc state to possessed
     creator.x = enemy_id.x; //update player coords
     creator.y = enemy_id.y; //update player coords
+    creator.possession_shield = 0; // reset shield
     with(creator_possession_object)
     scr_lose_weapon(obj_bullet_possession.creator,currently_possessed_enemy); //lose previous weapon
     creator_possession_object.currently_possessed_enemy = enemy_id; //Store id of current possessed enemy
         creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store name of current possessed enemy
     scr_gain_weapon(creator,enemy_id);//gain new weapon
+    creator.possession_shield += enemy_id.hp; // gain enemy's life as shield
     instance_destroy(); //destroy bullet
 } 
 

@@ -3,7 +3,7 @@
   <caption></caption>
   <width>6000</width>
   <height>6000</height>
-  <vsnap>32</vsnap>
+  <vsnap>16</vsnap>
   <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
@@ -51,6 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
+    <instance objName="obj_grid_ai" x="96" y="4320" name="inst_2B737F7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="176" y="144" name="inst_22E936F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="240" y="144" name="inst_B850074F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="304" y="144" name="inst_42DC2866" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -148,13 +149,9 @@
     <instance objName="obj_wall_concrete" x="1232" y="912" name="inst_0CFFCC56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="1360" y="912" name="inst_8E336676" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="1360" y="624" name="inst_966F8D1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_concrete" x="1408" y="640" name="inst_BFC916B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="1408" y="896" name="inst_CCABBC4B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="1456" y="656" name="inst_E78821D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_concrete" x="1456" y="880" name="inst_EDB41960" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="1504" y="864" name="inst_60F77105" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="1504" y="672" name="inst_0611D394" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_player" x="2048" y="2048" name="inst_E033A006" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="720" y="1360" name="inst_8604AA93" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="688" y="144" name="inst_5393CAFF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="1504" y="608" name="inst_AC060DA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
@@ -539,12 +536,9 @@
     <instance objName="obj_wall_concrete" x="208" y="3120" name="inst_816E191D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="272" y="3120" name="inst_972AD023" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="336" y="3120" name="inst_358AF7B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_concrete" x="400" y="3120" name="inst_91894775" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_concrete" x="448" y="3136" name="inst_EBBE5198" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="512" y="3200" name="inst_E0ABD5C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="464" y="3184" name="inst_2F131378" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_concrete" x="672" y="3200" name="inst_E905926D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="720" y="3184" name="inst_EDCE706F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="384" y="3136" name="inst_EBBE5198" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
+    <instance objName="obj_wall_concrete" x="400" y="3184" name="inst_2F131378" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="752" y="3184" name="inst_EDCE706F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="768" y="3168" name="inst_69965636" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="784" y="3120" name="inst_B7148B0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="848" y="3120" name="inst_64444BAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -598,9 +592,8 @@
     <instance objName="obj_wall_concrete" x="1792" y="3264" name="inst_BE239418" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="1792" y="3200" name="inst_A2319DBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="1792" y="3136" name="inst_9DC7C45A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="512" y="3264" name="inst_96B61891" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="512" y="3328" name="inst_E5046B23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="464" y="3344" name="inst_D8C4296B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="496" y="3232" name="inst_96B61891" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
+    <instance objName="obj_wall_concrete" x="496" y="3296" name="inst_E5046B23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="400" y="3344" name="inst_F5624BD4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="336" y="3344" name="inst_A44E8408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="272" y="3344" name="inst_4D198BB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -662,8 +655,8 @@
     <instance objName="obj_wall_concrete" x="1008" y="3632" name="inst_93FEF08B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="944" y="3632" name="inst_1E13BCBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="880" y="3632" name="inst_07E54255" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_concrete" x="672" y="3264" name="inst_B6BB73DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_wall_concrete" x="672" y="3328" name="inst_881CCE08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
+    <instance objName="obj_wall_concrete" x="656" y="3232" name="inst_B6BB73DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
+    <instance objName="obj_wall_concrete" x="656" y="3296" name="inst_881CCE08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_wall_concrete" x="720" y="3344" name="inst_BE662479" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="784" y="3344" name="inst_5743B5AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_concrete" x="848" y="3344" name="inst_46077DB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -673,18 +666,20 @@
     <instance objName="obj_wall_concrete" x="864" y="3584" name="inst_2819412B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_game_control" x="48" y="4320" name="inst_6A4C73BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sound_control" x="64" y="4320" name="inst_817CE17A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_grid_ai" x="80" y="4320" name="inst_E1203797" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_grunt" x="304" y="1760" name="inst_CAFA161D" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;state_switch(&quot;idle&quot;);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_grunt" x="272" y="1024" name="inst_B15A186E" locked="0" code="default_state = &quot;patrol&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;patrol_x2 = 500;&#xA;patrol_y2 = 800;&#xA;&#xA;state_switch(&quot;patrol&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_grunt" x="336" y="288" name="inst_D37EB142" locked="0" code="default_state = &quot;patrol&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;patrol_x2 = 1664;&#xA;patrol_y2 = 700;&#xA;&#xA;state_switch(&quot;patrol&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_grunt" x="288" y="512" name="inst_0BDD093A" locked="0" code="default_state = &quot;patrol&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;patrol_x2 = 592;&#xA;patrol_y2 = 448;&#xA;&#xA;state_switch(&quot;patrol&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_grunt" x="2256" y="992" name="inst_24FB3216" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;&#xA;state_switch(&quot;idle&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_grunt" x="1760" y="1280" name="inst_CE701A5D" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;&#xA;state_switch(&quot;idle&quot;);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_gruntCamo" x="1616" y="2880" name="inst_4F1D61E8" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;&#xA;state_switch(&quot;idle&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_gruntCamo" x="2240" y="2464" name="inst_F3AC676A" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;&#xA;state_switch(&quot;idle&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_gruntCamo" x="2352" y="3264" name="inst_12D3EE16" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;&#xA;state_switch(&quot;idle&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_gruntCamo" x="3520" y="2624" name="inst_6B2FC5F1" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;&#xA;state_switch(&quot;idle&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_gruntCamo" x="3328" y="2208" name="inst_109B04E3" locked="0" code="default_state = &quot;idle&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;&#xA;&#xA;state_switch(&quot;idle&quot;);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="592" y="800" name="inst_ECF625F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_purple" x="1504" y="768" name="inst_7B8F0BB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
+    <instance objName="obj_door_purple" x="576" y="3184" name="inst_C86BC48D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="1456" y="880" name="inst_0D67901D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="1456" y="656" name="inst_17253548" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="1408" y="640" name="inst_3F0FB8F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
+    <instance objName="obj_wall_concrete" x="480" y="3184" name="inst_5F7E0BAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="672" y="3184" name="inst_22D0BDE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="480" y="3344" name="inst_C167493F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_concrete" x="672" y="3344" name="inst_1B2EC6E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="272" y="704" name="inst_55E1DC93" locked="0" code="default_state = &quot;patrol&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;patrol_x2 = 500;&#xA;patrol_y2 = 800;&#xA;&#xA;state_switch(&quot;patrol&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="224" y="320" name="inst_EAABAD39" locked="0" code="default_state = &quot;patrol&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;patrol_x2 = 500;&#xA;patrol_y2 = 800;&#xA;&#xA;state_switch(&quot;patrol&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="608" y="352" name="inst_C0E4163F" locked="0" code="default_state = &quot;patrol&quot;;&#xA;&#xA;patrol_x1 = x;&#xA;patrol_y1 = y;&#xA;patrol_x2 = 500;&#xA;patrol_y2 = 800;&#xA;&#xA;state_switch(&quot;patrol&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ts_interior_concrete_01" x="304" y="1376" w="64" h="64" xo="0" yo="0" id="10001479" name="inst_3A704A9E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

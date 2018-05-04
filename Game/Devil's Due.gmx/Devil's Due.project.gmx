@@ -40,13 +40,20 @@
           <sound>sound\snd_grunt_hit_05</sound>
           <sound>sound\snd_grunt_hit_06</sound>
         </sounds>
+        <sounds name="Walk">
+          <sound>sound\snd_grunt_walk_01</sound>
+          <sound>sound\snd_grunt_walk_02</sound>
+        </sounds>
       </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Boxes">
-      <sprite>sprites\spr_box_01</sprite>
       <sprite>sprites\spr_box_02</sprite>
+      <sprites name="Box 1">
+        <sprite>sprites\spr_box_01</sprite>
+        <sprite>sprites\spr_box_01_destroyed</sprite>
+      </sprites>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_player_idle</sprite>
@@ -61,6 +68,7 @@
       <sprite>sprites\spr_door_purple</sprite>
       <sprite>sprites\spr_door_green</sprite>
       <sprite>sprites\spr_door_red</sprite>
+      <sprite>sprites\spr_door_purple_open</sprite>
     </sprites>
     <sprites name="Bullets">
       <sprite>sprites\spr_bullet_mask</sprite>
@@ -78,6 +86,9 @@
         <sprite>sprites\spr_gruntCamo_idle</sprite>
         <sprite>sprites\spr_gruntCamo_run</sprite>
       </sprites>
+    </sprites>
+    <sprites name="Misc">
+      <sprite>sprites\spr_empty_mask</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -153,6 +164,7 @@
       <object>objects\obj_player</object>
       <object>objects\obj_player_fire</object>
       <object>objects\obj_player_possess</object>
+      <object>objects\obj_gui</object>
     </objects>
     <objects name="Game Control">
       <object>objects\obj_debug</object>
@@ -171,6 +183,10 @@
         <object>objects\obj_door_purple</object>
         <object>objects\obj_door_yellow</object>
         <object>objects\obj_door_green</object>
+      </objects>
+      <objects name="Boxes">
+        <object>objects\obj_box_02</object>
+        <object>objects\obj_box_01</object>
       </objects>
     </objects>
     <objects name="Bullets">

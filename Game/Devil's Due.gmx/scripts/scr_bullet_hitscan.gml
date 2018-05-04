@@ -21,7 +21,7 @@ while (distance < range) //if distance is lower than range
     state_switch("alert");
     else if (state_name == "alert")
     {
-        path_end();
+    path_end();
     player_x = obj_player.x;
     player_y = obj_player.y;
     alert_chase_stop = false;
@@ -39,10 +39,9 @@ while (distance < range) //if distance is lower than range
     bullet.creator = argument[0];
     bullet.creator_fire_object = argument[1];
     //deal damage to enemy
-    if (instance_exists(obj_enemy))
-    if (target.object_index == obj_enemy.object_index)
+    //if (instance_exists(obj_targetable))
+    if (object_is_ancestor(target.object_index,obj_targetable)) 
     target.hp-=bullet.shot_damage;
-    
     break;
     }
     else

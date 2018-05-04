@@ -6,6 +6,7 @@ randomshot = random_range(-argument[0].weapons_grid[argument[0].currently_equipp
 while (distance < range) //if distance is lower than range
 {
     argument[0].target = collision_line(argument[0].x,argument[0].y,argument[0].x+lengthdir_x(argument[0].distance,argument[0].dir+argument[0].randomshot),argument[0].y+lengthdir_y(argument[0].distance,argument[0].dir+argument[0].randomshot),obj_player,false,true) //set target
+    var destructible = collision_line(argument[0].x,argument[0].y,argument[0].x+lengthdir_x(argument[0].distance,argument[0].dir+argument[0].randomshot),argument[0].y+lengthdir_y(argument[0].distance,argument[0].dir+argument[0].randomshot),obj_targetable,false,true) //set target
     if (target) //if you  met target
     {
     //Play sound
@@ -17,18 +18,40 @@ while (distance < range) //if distance is lower than range
     //deal damage to player
     if (instance_exists(obj_player))
     if (target.object_index == obj_player.object_index)
+    if (target.possession_shield > 0)
+    target.possession_shield-=bullet.shot_damage;
+    else
+    target.hp-=bullet.shot_damage;
+    if (object_is_ancestor(target.object_index,obj_targetable))
     target.hp-=bullet.shot_damage;
     break;
     }
     else
     distance=distance+1; //else increase the distance
+
+if (!target && destructible && !object_is_ancestor(destructible.object_index,obj_enemy))
+{
+//Play sound
+    audio_play_sound_at(destructible.hit_sound[irandom_range(0,array_length_1d(destructible.hit_sound)-1)],destructible.x,destructible.y,0,100,600,1,false,2);
+    bullet = instance_create(argument[0].x+lengthdir_x(distance,argument[0].dir+randomshot),argument[0].y+lengthdir_y(distance,argument[0].dir+randomshot),obj_bullet) //create bullet on collision point
+    bullet.creator = argument[0];
+    bullet.creator_fire_object = argument[0];
+    bullet.shot_damage = argument[0].weapons_grid[argument[0].currently_equipped_weapon,4]; //set shot damage
+    //deal damage to destructible
+    if (instance_exists(obj_targetable))
+    destructible.hp-=bullet.shot_damage;
+    break;
 }
-if (!target) //haven't met any target
+    else
+    distance=distance+1; //else increase the distance
+}
+if (!target && !destructible) //haven't met any target
 {
 bullet = instance_create(argument[0].x+lengthdir_x(range,argument[0].dir+randomshot),argument[0].y+lengthdir_y(range,argument[0].dir+randomshot),obj_bullet) //create bullet with default range
 bullet.creator = argument[0];
 bullet.creator_fire_object = argument[0];
 }
+
 //Play sound
 audio_play_sound_at(argument[0].weapons_grid[argument[0].currently_equipped_weapon,7],argument[0].x,argument[0].y,0,100,600,1,false,1);
 

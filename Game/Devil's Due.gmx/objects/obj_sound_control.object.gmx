@@ -49,16 +49,7 @@ audio_falloff_set_model(audio_falloff_linear_distance);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Player sound check
-if (obj_player.state_name == "Run")
-{
-if (obj_player.tile)
-audio_play_sound_at(irandom_range(1,2),obj_player.x,obj_player.y,0,100,100,1,false,1);
-}
-
-
-
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

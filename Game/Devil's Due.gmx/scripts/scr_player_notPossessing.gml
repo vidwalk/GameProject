@@ -5,3 +5,5 @@ if (state_new)
     obj_player_possess.currently_possessed_enemy = 0; //reset poss
     obj_player_possess.currently_possessed_enemy_type = 0; //reset poss type
 }
+if (obj_player.hp < obj_player.hp_max)
+obj_player.hp += obj_player.hp_regen/room_speed;

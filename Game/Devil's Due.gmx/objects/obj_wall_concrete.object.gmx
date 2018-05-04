@@ -26,7 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Properties
+hp = 0;
 hit_sound[0] = snd_bullet_impact_01;
+
+mp_grid_add_instances(global.grid_ai,id,0);
 </string>
           </argument>
         </arguments>

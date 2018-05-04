@@ -4,11 +4,11 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -19,29 +19,21 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>obj_gui</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Grid properties
-hcells = 0; //Number of horizontal cells;
-vcells = 0; //Number of vertical cells;
-cell_height = 0; //Cell height;
-cell_width = 0; //Cell width;
-
-///New AI Grid when any room starts
-cell_width = 64; //Cell Width of grid
-cell_height = 64; //Cell Height of grid
-
-hcells = room_width/cell_width; //Number of horizontalcells
-vcells = room_height/cell_height; //Number of verticalcells
-
-globalvar grid_ai;
-grid_ai = mp_grid_create(0,0,hcells,vcells,cell_width,cell_height); //Create the Grid
-
-
+            <string>draw_set_color(c_red)
+draw_text(800,700,"HEALTH: "+string(obj_player.hp));
+draw_text(800,720,"WEAPON: "+string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,1]));
+draw_text(800,740,"AMMO: "+string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]));
+draw_text(800,760,"POSSESSION CHARGES: "+string(obj_player.possession_charges));
+with(obj_player_possess)
+if (instance_exists(currently_possessed_enemy))
+draw_text(800,780,"CURRENT ENEMY INSANITY: "+string(currently_possessed_enemy.insanity));
+draw_text(800,800,"SHIELD: "+string(obj_player.possession_shield));
 </string>
           </argument>
         </arguments>
