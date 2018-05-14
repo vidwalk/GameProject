@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -105,6 +105,33 @@ state_update();
             <string>//State Execute
 state_execute();
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (state_name == "fire" &amp;&amp; obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]&gt;0)
+{
+with (obj_player)
+draw_sprite_ext(weapons_grid[currently_equipped_weapon,12],irandom_range(0,sprite_get_number(weapons_grid[currently_equipped_weapon,12])),obj_player.x+lengthdir_x(24,obj_player.dir),obj_player.y+lengthdir_y(24,obj_player.dir),1,1,obj_player.dir,c_white,1);
+}
 </string>
           </argument>
         </arguments>

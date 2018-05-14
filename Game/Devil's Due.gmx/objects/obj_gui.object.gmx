@@ -34,6 +34,9 @@ with(obj_player_possess)
 if (instance_exists(currently_possessed_enemy))
 draw_text(800,780,"CURRENT ENEMY INSANITY: "+string(currently_possessed_enemy.insanity));
 draw_text(800,800,"SHIELD: "+string(obj_player.possession_shield));
+
+if (obj_player.hp &lt;= 0)
+draw_text_transformed(150,200,"DEAD",36,36,0)
 </string>
           </argument>
         </arguments>

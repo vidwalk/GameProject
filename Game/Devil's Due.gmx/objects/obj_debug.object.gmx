@@ -145,8 +145,9 @@ draw_text(100,780,"Last weapon: "+string(last_weapon));
 
 with (obj_grid_ai)
 {
-draw_set_alpha(1);
+draw_set_alpha(0.2);
 draw_set_colour(c_blue);
+mp_grid_draw(global.grid_ai);
 for (var i = 0; i &lt; room_width; i += 64;)
     {
     draw_line_width(i, 0, i, room_height, 3);

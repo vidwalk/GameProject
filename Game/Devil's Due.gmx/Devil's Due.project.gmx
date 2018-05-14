@@ -11,6 +11,7 @@
           <sound>sound\snd_deagle_simple</sound>
           <sound>sound\snd_deagle_soul</sound>
           <sound>sound\snd_deagle_noammo</sound>
+          <sound>sound\snd_deagle_soul_02</sound>
         </sounds>
         <sounds name="AutoRifle">
           <sound>sound\snd_rifle_auto</sound>
@@ -69,6 +70,13 @@
       <sprite>sprites\spr_door_green</sprite>
       <sprite>sprites\spr_door_red</sprite>
       <sprite>sprites\spr_door_purple_open</sprite>
+      <sprite>sprites\spr_door_red_open</sprite>
+      <sprite>sprites\spr_door_green_open</sprite>
+      <sprites name="Keys">
+        <sprite>sprites\spr_key_purple</sprite>
+        <sprite>sprites\spr_key_green</sprite>
+        <sprite>sprites\spr_key_red</sprite>
+      </sprites>
     </sprites>
     <sprites name="Bullets">
       <sprite>sprites\spr_bullet_mask</sprite>
@@ -76,6 +84,8 @@
       <sprite>sprites\spr_rifle_bullet</sprite>
       <sprite>sprites\spr_deagle_bullet</sprite>
       <sprite>sprites\spr_machinegun_bullet</sprite>
+      <sprite>sprites\spr_flash</sprite>
+      <sprite>sprites\spr_flash_deagle</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Grunt">
@@ -89,12 +99,19 @@
     </sprites>
     <sprites name="Misc">
       <sprite>sprites\spr_empty_mask</sprite>
+      <sprite>sprites\spr_scoreboard</sprite>
+    </sprites>
+    <sprites name="Hit Sprites">
+      <sprites name="Blood">
+        <sprite>sprites\spr_hit_blood_01</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
       <background>background\ts_interior_concrete_01</background>
       <background>background\ts_interior_concrete_02</background>
+      <background>background\ts_interior_concrete_03</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -171,6 +188,7 @@
       <object>objects\obj_game_control</object>
       <object>objects\obj_sound_control</object>
       <object>objects\obj_grid_ai</object>
+      <object>objects\obj_scoreboard</object>
     </objects>
     <objects name="Solids">
       <object>objects\obj_targetable</object>
@@ -181,8 +199,13 @@
       </objects>
       <objects name="Doors">
         <object>objects\obj_door_purple</object>
-        <object>objects\obj_door_yellow</object>
         <object>objects\obj_door_green</object>
+        <object>objects\obj_door_red</object>
+        <objects name="Keys">
+          <object>objects\obj_key_purple</object>
+          <object>objects\obj_key_green</object>
+          <object>objects\obj_key_red</object>
+        </objects>
       </objects>
       <objects name="Boxes">
         <object>objects\obj_box_02</object>
@@ -204,6 +227,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_demo</room>
     <room>rooms\rm_01</room>
     <room>rooms\rm_test</room>
   </rooms>

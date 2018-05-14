@@ -27,16 +27,16 @@
             <kind>1</kind>
             <string>///Properties
 dir = 0; //Initial direction
-hp = 15; //health
+hp = 8; //health
 currently_equipped_weapon = 3; //Equip default weapon
 alert_range = 225; //alert rangewdds
 engage_range = 150; // fire range
-insanity_rate = 3; //insanity per second
+insanity_rate = 8; //insanity per second
 insanity = 0; // initial insanity
 
 alert_chase_timer = 4; //how long to chase
 
-spd = 2.5; //speed
+spd = 3.8; //speed
 
 //Possession vars
 possessor = 0; //Current possessor
@@ -44,6 +44,7 @@ possessor = 0; //Current possessor
 //fixes
 fix_x = x; //x fix for possession
 fix_y = y; //y fix for possession
+splash_dir = 0; //splash dir when hit
 
 //Dazed after possession
 dazed_timer = 2.5;
@@ -73,12 +74,19 @@ distance = 0;
 randomshot = 0;
 target = 0;
 can_fire_bullet = true;
-firing_random_cooldown = 8;
+firing_random_cooldown = 12;
 vision = 0;
 player_x = 0;
 player_y = 0;
 
 alert_chase_stop = false; //when to stop chasing
+
+//Defaultness to idle
+default_state = "idle";
+
+patrol_x1 = x;
+patrol_y1 = y;
+
 
 
 
@@ -153,7 +161,7 @@ weapons_grid[3,1] = "Machine Gun";
 //Ammo
 weapons_grid[1,2] = 0;
 weapons_grid[2,2] = 0;
-weapons_grid[3,2] = 200;
+weapons_grid[3,2] = 45;
 //Available
 weapons_grid[1,3] = false;
 weapons_grid[2,3] = false;
@@ -163,9 +171,9 @@ weapons_grid[1,4] = 3;
 weapons_grid[2,4] = 1;
 weapons_grid[3,4] = 1;
 //Cooldown
-weapons_grid[1,5] = 0.7;
+weapons_grid[1,5] = 0.3;
 weapons_grid[2,5] = 0.09;
-weapons_grid[3,5] = 0.05;
+weapons_grid[3,5] = 0.07;
 //Range
 weapons_grid[1,6] = 1000;
 weapons_grid[2,6] = 1000;
@@ -175,9 +183,9 @@ weapons_grid[1,7] = snd_deagle_soul;
 weapons_grid[2,7] = snd_rifle_auto;
 weapons_grid[3,7] = snd_deagle_simple;
 //Accuracy
-weapons_grid[1,8] = 2;
+weapons_grid[1,8] = 4;
 weapons_grid[2,8] = 9;
-weapons_grid[3,8] = 13;
+weapons_grid[3,8] = 15;
 //NoAmmo Sound
 weapons_grid[1,9] = snd_deagle_noammo;
 weapons_grid[2,9] = snd_rifle_noammo;
@@ -222,6 +230,7 @@ hit_sound[1] = snd_bullet_impact_01;
 //hit_sound[3] = snd_grunt_hit_04;
 //hit_sound[4] = snd_grunt_hit_05;
 //hit_sound[5] = snd_grunt_hit_06;
+
 //Footsteps array
 tile_layers = 1;
 footsteps_can_play = true;
@@ -230,6 +239,31 @@ footsteps_audio_cd = 0.5;
 footsteps_array[0,0] = 1000000; 
 footsteps_array[1,0] = snd_grunt_walk_01;
 footsteps_array[2,0] = snd_grunt_walk_02;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Hit Sprites
+sprite = 0;
+hit_sprite[0] = spr_hit_blood_01;
+hit_sprite[1] = spr_hit_blood_01;
+hit_sprite[2] = spr_hit_blood_01;
 </string>
           </argument>
         </arguments>
@@ -254,6 +288,12 @@ footsteps_array[2,0] = snd_grunt_walk_02;
             <kind>1</kind>
             <string>if (obj_player.possession_charges &lt; obj_player.possession_charges_max)
 obj_player.possession_charges++;
+
+//add death to scoreboard
+with (obj_player)
+if (!place_meeting(x,y,obj_scoreboard))
+obj_scoreboard.killed_enemies++;
+
 </string>
           </argument>
         </arguments>
@@ -376,6 +416,9 @@ state_execute();
 //Lower insanity
 if (insanity &gt; 0 &amp;&amp; state_name != "possessed")
 insanity-=insanity_rate/room_speed;
+
+
+
 </string>
           </argument>
         </arguments>
@@ -400,6 +443,16 @@ insanity-=insanity_rate/room_speed;
             <kind>1</kind>
             <string>//Draw Sprite
 draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
+//draw hit animation
+
+bullet = instance_place(x,y,obj_bullet)
+if (bullet &amp;&amp; bullet.creator == obj_player)
+{
+with (bullet)
+other.splash_dir = shot_angle+180;
+sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
+draw_sprite_ext(sprite,4,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+}
 </string>
           </argument>
         </arguments>

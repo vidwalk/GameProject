@@ -28,12 +28,37 @@
             <string>///Properties
 hit_sound[0] = snd_bullet_impact_01;
 
+mp_grid_add_instances(global.grid_ai,id,0);
 
 hp = 6;
 destroyed = 0;
 
 image_index = 0;
 image_speed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Hit Sprites
+hit_sprite[0] = spr_hit_blood_01;
+hit_sprite[1] = spr_hit_blood_01;
+hit_sprite[2] = spr_hit_blood_01;
 </string>
           </argument>
         </arguments>

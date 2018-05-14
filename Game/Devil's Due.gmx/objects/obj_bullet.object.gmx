@@ -29,6 +29,7 @@
 creator = 0; //initial bullet creator
 creator_fire_object = 0; //initial bullet creator's fire object
 shot_angle = creator.dir; //save initial angle
+hit_sprite = 0;
 shot_damage = creator.weapons_grid[creator.currently_equipped_weapon,4]; //set shot damage
 </string>
           </argument>
@@ -96,14 +97,17 @@ if (instance_exists(creator))
 {
 bulletWidth = sprite_get_width(creator.weapons_grid[creator.currently_equipped_weapon,10]);
 for (var i=1; i&lt;=creator_fire_object.distance/bulletWidth;i++)
+if (creator!=obj_player)
 draw_sprite_ext(creator.weapons_grid[creator.currently_equipped_weapon,10],1,creator.x+lengthdir_x(i*bulletWidth,creator.dir+creator_fire_object.randomshot),creator.y+lengthdir_y(i*bulletWidth,creator.dir+creator_fire_object.randomshot),1,1,creator.dir+creator_fire_object.randomshot,c_white,1)
+else
+draw_sprite_ext(creator.weapons_grid[creator.currently_equipped_weapon,10],1,creator.x+lengthdir_x(i*bulletWidth,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(i*bulletWidth,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1)
 }
-
 
 //draw_line_width_colour(creator.x,creator.y,creator.x+lengthdir_x(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),2,c_yellow,c_orange); //draw shot
 //draw_line_width_colour(creator.x,creator.y,creator.x+lengthdir_x(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),2,c_red,c_yellow); //draw shot
 draw_set_blend_mode(bm_normal); //reset blending mode
 draw_set_alpha(1); //reset alpha
+
 
 </string>
           </argument>

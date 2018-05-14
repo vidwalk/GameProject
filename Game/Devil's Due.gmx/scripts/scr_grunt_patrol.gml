@@ -40,5 +40,3 @@ state_switch("alert");
 if (hp <= 0)
 instance_destroy();
 
-//Play footsteps
-scr_tile_footsteps(obj_grunt);

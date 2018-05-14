@@ -7,3 +7,7 @@ if (state_new)
 }
 if (obj_player.hp < obj_player.hp_max)
 obj_player.hp += obj_player.hp_regen/room_speed;
+
+//regen deagle ammo
+if (obj_player.weapons_grid[1,2] < obj_player.weapons_grid[1,11])
+obj_player.weapons_grid[1,2] += floor(obj_player.deagle_regen);
