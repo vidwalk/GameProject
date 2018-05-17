@@ -26,12 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>///Properties
-hit_sound[0] = snd_bullet_impact_01;
+
 
 mp_grid_add_instances(global.grid_ai,id,0);
 
 hp = 6;
 destroyed = 0;
+show_splash = false;
 
 image_index = 0;
 image_speed = 0;
@@ -56,9 +57,32 @@ image_speed = 0;
           <argument>
             <kind>1</kind>
             <string>///Hit Sprites
-hit_sprite[0] = spr_hit_blood_01;
-hit_sprite[1] = spr_hit_blood_01;
-hit_sprite[2] = spr_hit_blood_01;
+hit_sprite[0] = spr_hit_wood_01;
+hit_sprite[1] = spr_hit_wood_01;
+hit_sprite[2] = spr_hit_wood_01;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Sounds array
+hit_sound[0] = snd_bullet_impact_01;
+break_sound = snd_box_break_01;
 </string>
           </argument>
         </arguments>
@@ -81,14 +105,17 @@ hit_sprite[2] = spr_hit_blood_01;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (hp &gt; 4 &amp;&amp; hp &lt;=6)
+            <string>//Draw damage
+if (hp &gt; 4 &amp;&amp; hp &lt;=6)
 draw_sprite(spr_box_01,0,x,y);
 if (hp &gt; 2 &amp;&amp; hp &lt;= 4)
 draw_sprite(spr_box_01,1,x,y);
 if (hp &gt; 0 &amp;&amp; hp &lt;= 2)
 draw_sprite(spr_box_01,2,x,y);
+//if hp&lt;0 destroy and clear grid
 if (hp &lt;= 0 &amp;&amp; !destroyed)
 {
+audio_play_sound_at(break_sound,x,y,0,100,600,1,false,1); // play sound
 destroyed = 1;
     mp_grid_clear_cell(global.grid_ai,floor(x/obj_grid_ai.cell_width),floor(y/obj_grid_ai.cell_height));
 }
@@ -97,6 +124,23 @@ if (destroyed)
 sprite_index = noone;
 draw_sprite(spr_box_01,3,x,y);
 }
+
+//Splash
+bullet = instance_place(x,y,obj_bullet)
+if (show_splash)
+{
+show_splash = false;
+sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
+image = irandom_range(0,sprite_get_number(sprite)-1);
+}
+if (bullet)
+{
+with (bullet)
+other.splash_dir = shot_angle+180;
+draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+}
+if (bullet == noone)
+show_splash = true;
 </string>
           </argument>
         </arguments>

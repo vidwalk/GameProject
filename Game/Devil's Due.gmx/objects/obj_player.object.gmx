@@ -54,6 +54,7 @@ currently_equipped_weapon = 1; //Default Equip
 last_weapon = 0;
 weapon_boolean = false;
 splash_dir = 0;
+show_splash = true;
 
 
 
@@ -241,6 +242,8 @@ instance_create(0,0,obj_gui) // gui object
 //Hit Sounds Array
 hit_sound[0] = snd_bullet_impact_01;
 hit_sound[1] = snd_bullet_impact_01;
+//Misc sounds
+possession_sound = snd_possession_01;
 //Footsteps array
 tile_layers = 1;
 footsteps_can_play = true;
@@ -509,15 +512,22 @@ draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
 
 //splash when hit
 bullet = instance_place(x,y,obj_bullet)
+if (show_splash)
+{
+show_splash = false;
+sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
+image = irandom_range(0,sprite_get_number(sprite)-1);
+}
 if (bullet &amp;&amp; bullet.creator != obj_player)
 {
 if (instance_exists(bullet))
 with (bullet)
 if (instance_exists(creator))
 other.splash_dir = 180+creator.dir;
-sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
-draw_sprite_ext(sprite,4,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
 }
+if (bullet == noone)
+show_splash = true;
 </string>
           </argument>
         </arguments>

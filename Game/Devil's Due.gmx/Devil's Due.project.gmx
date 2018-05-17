@@ -27,9 +27,15 @@
           <sound>sound\snd_player_footstep_concrete_02</sound>
         </sounds>
       </sounds>
+      <sounds name="Possession">
+        <sound>sound\snd_possession_01</sound>
+      </sounds>
     </sounds>
     <sounds name="Bullet">
       <sound>sound\snd_bullet_impact_01</sound>
+      <sound>sound\snd_bullet_impact_02</sound>
+      <sound>sound\snd_bullet_impact_03</sound>
+      <sound>sound\snd_bullet_impact_04</sound>
     </sounds>
     <sounds name="Enemies">
       <sounds name="Grunt">
@@ -46,6 +52,19 @@
           <sound>sound\snd_grunt_walk_02</sound>
         </sounds>
       </sounds>
+    </sounds>
+    <sounds name="Music">
+      <sound>sound\snd_bg_01</sound>
+      <sound>sound\snd_am_01</sound>
+    </sounds>
+    <sounds name="Box">
+      <sound>sound\snd_box_break_01</sound>
+    </sounds>
+    <sounds name="Doors">
+      <sound>sound\snd_door_01</sound>
+    </sounds>
+    <sounds name="Keys">
+      <sound>sound\snd_key_pickup</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -102,6 +121,12 @@
     <sprites name="Hit Sprites">
       <sprites name="Blood">
         <sprite>sprites\spr_hit_blood_01</sprite>
+      </sprites>
+      <sprites name="Wood">
+        <sprite>sprites\spr_hit_wood_01</sprite>
+      </sprites>
+      <sprites name="Concrete">
+        <sprite>sprites\spr_hit_concrete_01</sprite>
       </sprites>
     </sprites>
   </sprites>

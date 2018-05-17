@@ -26,11 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>///Properties
-hit_sound[0] = snd_bullet_impact_01;
 hp = 0;
 open = spr_door_purple_open;
 key = 0
 mp_grid_add_instances(global.grid_ai,id,0);
+
+//misc
+show_splash = true;
 </string>
           </argument>
         </arguments>
@@ -80,9 +82,30 @@ state_init("closed");
           <argument>
             <kind>1</kind>
             <string>///Hit Sprites
-hit_sprite[0] = spr_hit_blood_01;
-hit_sprite[1] = spr_hit_blood_01;
-hit_sprite[2] = spr_hit_blood_01;
+hit_sprite[0] = spr_hit_concrete_01;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Sound Array
+open_sound = snd_door_01;
+hit_sound[0] = snd_bullet_impact_02;
 </string>
           </argument>
         </arguments>
@@ -131,6 +154,44 @@ state_update();
             <kind>1</kind>
             <string>//State Execute
 state_execute();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+bullet = instance_place(x,y,obj_bullet)
+if (show_splash)
+{
+show_splash = false;
+sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
+image = irandom_range(0,sprite_get_number(sprite)-1);
+}
+if (bullet)
+{
+with (bullet)
+other.splash_dir = shot_angle+180;
+draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+}
+if (bullet == noone)
+show_splash = true;
 </string>
           </argument>
         </arguments>

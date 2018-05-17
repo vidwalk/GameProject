@@ -35,7 +35,7 @@ insanity_rate = 8; //insanity per second
 insanity = 0; // initial insanity
 
 alert_chase_timer = 4; //how long to chase
-
+muzzle_flash = false;
 spd = 3.8; //speed
 
 //Possession vars
@@ -45,6 +45,7 @@ possessor = 0; //Current possessor
 fix_x = x; //x fix for possession
 fix_y = y; //y fix for possession
 splash_dir = 0; //splash dir when hit
+show_splash = true; // splash show
 
 //Dazed after possession
 dazed_timer = 2.5;
@@ -194,6 +195,10 @@ weapons_grid[3,9] = snd_machinegun_noammo;
 weapons_grid[1,10] = spr_deagle_bullet;
 weapons_grid[2,10] = spr_rifle_bullet;
 weapons_grid[3,10] = spr_machinegun_bullet;
+//Muzzle Flash sprites
+weapons_grid[1,12] = spr_flash_deagle;
+weapons_grid[2,12] = spr_flash_deagle;
+weapons_grid[3,12] = spr_flash_deagle;
 
 
 
@@ -446,12 +451,28 @@ draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
 //draw hit animation
 
 bullet = instance_place(x,y,obj_bullet)
-if (bullet &amp;&amp; bullet.creator == obj_player)
+if (show_splash)
+{
+show_splash = false;
+sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
+image = irandom_range(0,sprite_get_number(sprite)-1);
+}
+if (bullet &amp;&amp; bullet.creator == obj_player &amp;&amp; obj_player_possess.currently_possessed_enemy!=id)
 {
 with (bullet)
 other.splash_dir = shot_angle+180;
-sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
-draw_sprite_ext(sprite,4,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+}
+if (bullet == noone)
+show_splash = true;
+
+
+//muzzle flash
+if (state_name == "engaged" &amp;&amp; muzzle_flash == true)
+{
+muzzle_flash = false;
+with (id)
+draw_sprite_ext(weapons_grid[currently_equipped_weapon,12],irandom_range(0,sprite_get_number(weapons_grid[currently_equipped_weapon,12])),id.x+lengthdir_x(24,id.dir),id.y+lengthdir_y(24,id.dir),1,1,id.dir,c_white,1);
 }
 </string>
           </argument>

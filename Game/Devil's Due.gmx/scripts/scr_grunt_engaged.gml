@@ -20,7 +20,9 @@ fire_stop = 1;
 alarm[0] = room_speed*weapons_grid[currently_equipped_weapon,5]*fire_stop; 
 can_fire_bullet = false;
 //Fire Projectile
+muzzle_flash = true;
 scr_enemy_bullet_hitscan(id);
+
 }
 }
 else
