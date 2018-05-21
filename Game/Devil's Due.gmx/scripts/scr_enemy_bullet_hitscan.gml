@@ -10,7 +10,8 @@ while (distance < range) //if distance is lower than range
     if (target) //if you  met target
     {
     //Play sound
-    audio_play_sound_at(target.hit_sound[irandom_range(0,array_length_1d(target.hit_sound)-1)],target.x,target.y,0,100,600,1,false,2);
+    var sound = audio_play_sound_at(target.hit_sound[irandom_range(0,array_length_1d(target.hit_sound)-1)],target.x,target.y,0,100,600,1,false,2);
+    audio_sound_pitch(sound, random_range(0.5,1));
     bullet = instance_create(argument[0].x+lengthdir_x(distance,argument[0].dir+randomshot),argument[0].y+lengthdir_y(distance,argument[0].dir+randomshot),obj_bullet) //create bullet on collision point
     bullet.creator = argument[0];
     bullet.creator_fire_object = argument[0];
@@ -32,7 +33,8 @@ while (distance < range) //if distance is lower than range
 if (!target && destructible && !object_is_ancestor(destructible.object_index,obj_enemy))
 {
 //Play sound
-    audio_play_sound_at(destructible.hit_sound[irandom_range(0,array_length_1d(destructible.hit_sound)-1)],destructible.x,destructible.y,0,100,600,1,false,2);
+    var sound2 = audio_play_sound_at(destructible.hit_sound[irandom_range(0,array_length_1d(destructible.hit_sound)-1)],destructible.x,destructible.y,0,100,600,1,false,2);
+    audio_sound_pitch(sound2, random_range(0.5,1));
     bullet = instance_create(argument[0].x+lengthdir_x(distance,argument[0].dir+randomshot),argument[0].y+lengthdir_y(distance,argument[0].dir+randomshot),obj_bullet) //create bullet on collision point
     bullet.creator = argument[0];
     bullet.creator_fire_object = argument[0];

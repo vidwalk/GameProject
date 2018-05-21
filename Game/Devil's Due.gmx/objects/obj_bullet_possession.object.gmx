@@ -86,10 +86,12 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
         creator_possession_object.currently_possessed_enemy = enemy_id; //Store possessed enemy id
         creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store type of current possession
         scr_gain_weapon(creator,enemy_id); //gain new weapon
+        creator.possession_shield_max = enemy_id.hp; //set creator's shield max
         creator.possession_shield += enemy_id.hp; // gain enemy's life as shield
         with (creator_possession_object)
             state_switch("possessing") // Switch player possession state
         instance_destroy(); //Destroy bullet
+        audio_play_sound(creator.possession_hit_sound,1,0); // play sound
     }
     
 
@@ -116,8 +118,10 @@ if (enemy_id &amp;&amp; enemy_id.state_name!="possessed" &amp;&amp; creator_poss
     creator_possession_object.currently_possessed_enemy = enemy_id; //Store id of current possessed enemy
         creator_possession_object.currently_possessed_enemy_type = object_get_name(enemy_id.object_index); //Store name of current possessed enemy
     scr_gain_weapon(creator,enemy_id);//gain new weapon
+    creator.possession_shield_max = enemy_id.hp; //set creator's shield max
     creator.possession_shield += enemy_id.hp; // gain enemy's life as shield
     instance_destroy(); //destroy bullet
+    audio_play_sound(creator.possession_hit_sound,1,0); // play sound
 } 
 
 

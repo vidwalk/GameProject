@@ -459,9 +459,17 @@ image = irandom_range(0,sprite_get_number(sprite)-1);
 }
 if (bullet &amp;&amp; bullet.creator == obj_player &amp;&amp; obj_player_possess.currently_possessed_enemy!=id)
 {
+//surface blood damage
+if (surface_exists(obj_wounds_control.damagemask))
+{
+surface_set_target(obj_wounds_control.damagemask);
 with (bullet)
 other.splash_dir = shot_angle+180;
 draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+surface_reset_target();
+}
+else
+obj_wounds_control.damagemask = surface_create(room_width,room_height);
 }
 if (bullet == noone)
 show_splash = true;

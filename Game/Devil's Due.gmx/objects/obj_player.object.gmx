@@ -37,6 +37,7 @@ hp = 10; //initial health
 hp_regen = 0.2; //hp regen per second
 deagle_regen = 2; //deagle regen per second
 possession_shield = 0; //possession shield
+possession_shield_max = 0; //possession shield max
 possession_charges = 1; //initial charges
 possession_charges_max = 3; //max possession charges
 possession_cd = 4.5; //possession cd
@@ -189,6 +190,10 @@ weapons_grid[1,11] = 99;
 weapons_grid[1,12] = spr_flash_deagle;
 weapons_grid[2,12] = spr_flash_deagle;
 weapons_grid[3,12] = spr_flash_deagle;
+//UI Sprite
+weapons_grid[1,13] = spr_ui_deagle;
+weapons_grid[2,13] = spr_ui_deagle;
+weapons_grid[3,13] = spr_ui_deagle;
 
 
 
@@ -243,7 +248,8 @@ instance_create(0,0,obj_gui) // gui object
 hit_sound[0] = snd_bullet_impact_01;
 hit_sound[1] = snd_bullet_impact_01;
 //Misc sounds
-possession_sound = snd_possession_01;
+possession_bullet_sound = snd_possession_bullet;
+possession_hit_sound = snd_possession_hit;
 //Footsteps array
 tile_layers = 1;
 footsteps_can_play = true;
@@ -524,7 +530,15 @@ if (instance_exists(bullet))
 with (bullet)
 if (instance_exists(creator))
 other.splash_dir = 180+creator.dir;
+//wounds on the ground
+if (surface_exists(obj_wounds_control.damagemask))
+{
+surface_set_target(obj_wounds_control.damagemask);
 draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+surface_reset_target();
+}
+else
+obj_wounds_control.damagemask = surface_create(room_width,room_height);
 }
 if (bullet == noone)
 show_splash = true;

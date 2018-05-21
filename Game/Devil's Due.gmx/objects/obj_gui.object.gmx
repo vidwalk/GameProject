@@ -26,17 +26,43 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_color(c_red)
-draw_text(800,700,"HEALTH: "+string(obj_player.hp));
-draw_text(800,720,"WEAPON: "+string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,1]));
-draw_text(800,740,"AMMO: "+string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]));
-draw_text(800,760,"POSSESSION CHARGES: "+string(obj_player.possession_charges));
-with(obj_player_possess)
-if (instance_exists(currently_possessed_enemy))
-draw_text(800,780,"CURRENT ENEMY INSANITY: "+string(currently_possessed_enemy.insanity));
-draw_text(800,800,"SHIELD: "+string(obj_player.possession_shield));
+//draw_text(800,700,"HEALTH: "+string(obj_player.hp));
+//draw_text(800,720,"WEAPON: "+string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,1]));
+//draw_text(800,740,"AMMO: "+string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]));
+//draw_text(800,760,"POSSESSION CHARGES: "+string(obj_player.possession_charges));
+//with(obj_player_possess)
+//if (instance_exists(currently_possessed_enemy))
+//draw_text(800,780,"CURRENT ENEMY INSANITY: "+string(currently_possessed_enemy.insanity));
+//draw_text(800,800,"SHIELD: "+string(obj_player.possession_shield));
 
 if (obj_player.hp &lt;= 0)
 draw_text_transformed(150,200,"DEAD",36,36,0)
+
+//saving window width and height
+var window_width = window_get_width();
+var window_height = window_get_height();
+//drawing healthbar
+draw_sprite_ext(spr_healthbar,0,window_width/2,window_height/2+window_height/4,1,1,0,c_white,1);
+var health_width = sprite_get_width(spr_health);
+var health_height = sprite_get_height(spr_health);
+var hp_percent = obj_player.hp/obj_player.hp_max;
+draw_sprite_part(spr_health,0,0,0,health_width*hp_percent, health_height, window_width/2-sprite_get_width(spr_healthbar)/2,window_height/2+window_height/4-sprite_get_height(spr_healthbar)/2);
+//draw shield
+var shield_width = sprite_get_width(spr_shield);
+var shield_height = sprite_get_height(spr_shield);
+var shield_percent = obj_player.possession_shield/obj_player.possession_shield_max;
+draw_sprite_part(spr_shield,0,0,0,shield_width*shield_percent, shield_height, window_width/2+sprite_get_width(spr_healthbar)/2,window_height/2+window_height/4-sprite_get_height(spr_healthbar)/2);
+//draw possession charges
+for (var i=0;i&lt;obj_player.possession_charges;i++)
+draw_sprite_ext(spr_charge_full,0,32*i+window_width/2-sprite_get_width(spr_health)/2+sprite_get_width(spr_charge_empty)/2,window_height/2+window_height/4-sprite_get_height(spr_health),1,1,0,c_white,1);
+for (var i=obj_player.possession_charges;i&lt;obj_player.possession_charges_max;i++)
+draw_sprite_ext(spr_charge_empty,0,32*i+window_width/2-sprite_get_width(spr_health)/2+sprite_get_width(spr_charge_empty)/2,window_height/2+window_height/4-sprite_get_height(spr_health),1,1,0,c_white,1);
+//draw weapon and ammo
+draw_sprite_ext(obj_player.weapons_grid[obj_player.currently_equipped_weapon,13],0,window_width/2-sprite_get_width(obj_player.weapons_grid[obj_player.currently_equipped_weapon,13]),window_height/2+window_height/4+sprite_get_height(obj_player.weapons_grid[obj_player.currently_equipped_weapon,13]),1,1,0,c_white,1);
+draw_sprite_ext(spr_ammo,0,window_width/2+sprite_get_width(spr_ammo),window_height/2+window_height/4+sprite_get_height(spr_ammo),1,1,0,c_white,1);
+draw_text_transformed(window_width/2+sprite_get_width(spr_ammo)*2,window_height/2+window_height/4+sprite_get_height(spr_ammo),string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]),1,1,0)
+
+
 </string>
           </argument>
         </arguments>

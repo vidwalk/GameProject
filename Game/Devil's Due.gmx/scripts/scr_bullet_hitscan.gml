@@ -32,7 +32,8 @@ while (distance < range) //if distance is lower than range
     }
     }
     //Play sound
-    audio_play_sound_at(target.hit_sound[irandom_range(0,array_length_1d(target.hit_sound)-1)],target.x,target.y,0,100,600,1,false,2);
+    var sound = audio_play_sound_at(target.hit_sound[irandom_range(0,array_length_1d(target.hit_sound)-1)],target.x,target.y,0,100,600,1,false,2);
+    audio_sound_pitch(sound, random_range(0.5,1));
     // substract ammo
     with (obj_player)
     if (!place_meeting(x,y,obj_scoreboard)) // add shots fired to scoreboard
