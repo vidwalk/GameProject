@@ -105,6 +105,7 @@ hit_sprite[0] = spr_hit_concrete_01;
             <kind>1</kind>
             <string>///Sound Array
 open_sound = snd_door_01;
+locked_sound = snd_door_02;
 hit_sound[0] = snd_bullet_impact_02;
 </string>
           </argument>
@@ -176,7 +177,8 @@ state_execute();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>
+draw_self();
 bullet = instance_place(x,y,obj_bullet)
 if (show_splash)
 {

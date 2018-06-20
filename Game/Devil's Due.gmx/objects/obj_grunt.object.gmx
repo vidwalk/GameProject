@@ -32,7 +32,7 @@ currently_equipped_weapon = 3; //Equip default weapon
 alert_range = 225; //alert rangewdds
 engage_range = 150; // fire range
 insanity_rate = 8; //insanity per second
-insanity = 0; // initial insanity
+insanity = 10; // initial insanity
 
 alert_chase_timer = 4; //how long to chase
 muzzle_flash = false;
@@ -87,6 +87,9 @@ default_state = "idle";
 
 patrol_x1 = x;
 patrol_y1 = y;
+
+//Sprites
+
 
 
 
@@ -182,7 +185,7 @@ weapons_grid[3,6] = 1000;
 //Sound
 weapons_grid[1,7] = snd_deagle_soul;
 weapons_grid[2,7] = snd_rifle_auto;
-weapons_grid[3,7] = snd_deagle_simple;
+weapons_grid[3,7] = snd_rifle_auto;
 //Accuracy
 weapons_grid[1,8] = 4;
 weapons_grid[2,8] = 9;
@@ -193,8 +196,8 @@ weapons_grid[2,9] = snd_rifle_noammo;
 weapons_grid[3,9] = snd_machinegun_noammo;
 //Bullet sprite
 weapons_grid[1,10] = spr_deagle_bullet;
-weapons_grid[2,10] = spr_rifle_bullet;
-weapons_grid[3,10] = spr_machinegun_bullet;
+weapons_grid[2,10] = spr_machinegun_bullet;
+weapons_grid[3,10] = spr_rifle_bullet;
 //Muzzle Flash sprites
 weapons_grid[1,12] = spr_flash_deagle;
 weapons_grid[2,12] = spr_flash_deagle;
@@ -266,9 +269,32 @@ footsteps_array[2,0] = snd_grunt_walk_02;
             <kind>1</kind>
             <string>///Hit Sprites
 sprite = 0;
-hit_sprite[0] = spr_hit_blood_01;
-hit_sprite[1] = spr_hit_blood_01;
-hit_sprite[2] = spr_hit_blood_01;
+hit_sprite[0] = spr_hit_blood_03;
+hit_sprite[1] = spr_hit_blood_03;
+hit_sprite[2] = spr_hit_blood_03;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Sprite Animations
+sprite_idle = spr_grunt_idle;
+sprite_run = spr_grunt_run;
 </string>
           </argument>
         </arguments>
@@ -446,7 +472,17 @@ insanity-=insanity_rate/room_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw Sprite
+            <string>//Draw Sprit
+if (path_index) //if following a path change sprite to running
+{
+sprite_index = sprite_run;
+image_speed = 0.1;
+}
+else if (path_index == -1 &amp;&amp; state_name!="possessed") //else to idle
+{
+sprite_index = sprite_idle;
+image_speed = 1;
+}
 draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
 //draw hit animation
 
@@ -465,7 +501,7 @@ if (surface_exists(obj_wounds_control.damagemask))
 surface_set_target(obj_wounds_control.damagemask);
 with (bullet)
 other.splash_dir = shot_angle+180;
-draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+draw_sprite_ext(sprite,image,bullet.x+lengthdir_x(64,bullet.shot_angle),bullet.y+lengthdir_y(64,bullet.shot_angle),1,1,splash_dir,c_white,1); //needs fix for animation
 surface_reset_target();
 }
 else

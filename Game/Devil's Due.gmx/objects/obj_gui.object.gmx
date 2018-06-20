@@ -61,7 +61,15 @@ draw_sprite_ext(spr_charge_empty,0,32*i+window_width/2-sprite_get_width(spr_heal
 draw_sprite_ext(obj_player.weapons_grid[obj_player.currently_equipped_weapon,13],0,window_width/2-sprite_get_width(obj_player.weapons_grid[obj_player.currently_equipped_weapon,13]),window_height/2+window_height/4+sprite_get_height(obj_player.weapons_grid[obj_player.currently_equipped_weapon,13]),1,1,0,c_white,1);
 draw_sprite_ext(spr_ammo,0,window_width/2+sprite_get_width(spr_ammo),window_height/2+window_height/4+sprite_get_height(spr_ammo),1,1,0,c_white,1);
 draw_text_transformed(window_width/2+sprite_get_width(spr_ammo)*2,window_height/2+window_height/4+sprite_get_height(spr_ammo),string(obj_player.weapons_grid[obj_player.currently_equipped_weapon,2]),1,1,0)
-
+//draw insanity circle
+with (obj_player_possess)
+{
+if (state_name == "possessing")
+{
+if (currently_possessed_enemy)
+draw_sprite_ext(spr_insanity_overlay,0,window_get_width()/2,window_get_height()/2,1,1,0,c_white,currently_possessed_enemy.insanity/100);
+}
+}
 
 </string>
           </argument>

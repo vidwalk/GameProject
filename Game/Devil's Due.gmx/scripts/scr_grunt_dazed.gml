@@ -1,5 +1,7 @@
 if (state_new)
 {
+sprite_index = sprite_idle;
+image_speed = 1;
 dazed_timer_done = false; 
 alarm[1] = dazed_timer*room_speed
 x = fix_x;

@@ -169,7 +169,7 @@ weapons_grid[1,6] = 1000;
 weapons_grid[2,6] = 1000;
 weapons_grid[3,6] = 1000;
 //Sound
-weapons_grid[1,7] = snd_deagle_soul_02;
+weapons_grid[1,7] = snd_deagle_02;
 weapons_grid[2,7] = snd_rifle_auto;
 weapons_grid[3,7] = snd_rifle_auto;
 //Accuracy
@@ -183,7 +183,7 @@ weapons_grid[3,9] = snd_machinegun_noammo;
 //Bullet sprite
 weapons_grid[1,10] = spr_deagle_bullet;
 weapons_grid[2,10] = spr_rifle_bullet;
-weapons_grid[3,10] = spr_machinegun_bullet;
+weapons_grid[3,10] = spr_rifle_bullet;
 //Max Ammo
 weapons_grid[1,11] = 99;
 //Muzzle Flash sprites
@@ -250,6 +250,8 @@ hit_sound[1] = snd_bullet_impact_01;
 //Misc sounds
 possession_bullet_sound = snd_possession_bullet;
 possession_hit_sound = snd_possession_hit;
+insanity_sound = snd_insanity_01;
+consume_sound = snd_insanity_02;
 //Footsteps array
 tile_layers = 1;
 footsteps_can_play = true;

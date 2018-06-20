@@ -98,9 +98,9 @@ if (instance_exists(creator))
 bulletWidth = sprite_get_width(creator.weapons_grid[creator.currently_equipped_weapon,10]);
 for (var i=1; i&lt;=creator_fire_object.distance/bulletWidth;i++)
 if (creator!=obj_player)
-draw_sprite_ext(creator.weapons_grid[creator.currently_equipped_weapon,10],1,creator.x+lengthdir_x(i*bulletWidth,creator.dir+creator_fire_object.randomshot),creator.y+lengthdir_y(i*bulletWidth,creator.dir+creator_fire_object.randomshot),1,1,creator.dir+creator_fire_object.randomshot,c_white,1)
+draw_sprite_ext(creator.weapons_grid[creator.currently_equipped_weapon,10],1,creator.x+lengthdir_x(20+i*bulletWidth,creator.dir+creator_fire_object.randomshot),creator.y+lengthdir_y(20+i*bulletWidth,creator.dir+creator_fire_object.randomshot),1,1,creator.dir+creator_fire_object.randomshot,c_white,1)
 else
-draw_sprite_ext(creator.weapons_grid[creator.currently_equipped_weapon,10],1,creator.x+lengthdir_x(i*bulletWidth,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(i*bulletWidth,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1)
+draw_sprite_ext(creator.weapons_grid[creator.currently_equipped_weapon,10],1,creator.x+lengthdir_x(20+i*bulletWidth,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(20+i*bulletWidth,shot_angle+creator_fire_object.randomshot),1,1,shot_angle+creator_fire_object.randomshot,c_white,1)
 }
 
 //draw_line_width_colour(creator.x,creator.y,creator.x+lengthdir_x(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),creator.y+lengthdir_y(creator_fire_object.distance,shot_angle+creator_fire_object.randomshot),2,c_yellow,c_orange); //draw shot

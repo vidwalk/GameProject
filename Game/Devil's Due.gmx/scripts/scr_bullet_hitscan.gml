@@ -47,7 +47,6 @@ while (distance < range) //if distance is lower than range
     if (object_is_ancestor(target.object_index,obj_targetable)) 
     target.hp-=bullet.shot_damage;
     break;
-    //if hits targetable create hit sprite
     }
     else
     distance=distance+1; //else increase the distance

@@ -2,6 +2,7 @@
 if (state_new)
 {
     path_end();
+    
 }
 dir = point_direction(x,y,obj_player.x,obj_player.y);
 

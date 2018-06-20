@@ -12,6 +12,7 @@
           <sound>sound\snd_deagle_soul</sound>
           <sound>sound\snd_deagle_noammo</sound>
           <sound>sound\snd_deagle_soul_02</sound>
+          <sound>sound\snd_deagle_02</sound>
         </sounds>
         <sounds name="AutoRifle">
           <sound>sound\snd_rifle_auto</sound>
@@ -64,9 +65,14 @@
     </sounds>
     <sounds name="Doors">
       <sound>sound\snd_door_01</sound>
+      <sound>sound\snd_door_02</sound>
     </sounds>
     <sounds name="Keys">
       <sound>sound\snd_key_pickup</sound>
+    </sounds>
+    <sounds name="Insanity">
+      <sound>sound\snd_insanity_01</sound>
+      <sound>sound\snd_insanity_02</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -123,6 +129,8 @@
     <sprites name="Hit Sprites">
       <sprites name="Blood">
         <sprite>sprites\spr_hit_blood_01</sprite>
+        <sprite>sprites\spr_hit_blood_02</sprite>
+        <sprite>sprites\spr_hit_blood_03</sprite>
       </sprites>
       <sprites name="Wood">
         <sprite>sprites\spr_hit_wood_01</sprite>
@@ -139,6 +147,7 @@
       <sprite>sprites\spr_charge_full</sprite>
       <sprite>sprites\spr_ui_deagle</sprite>
       <sprite>sprites\spr_ammo</sprite>
+      <sprite>sprites\spr_insanity_overlay</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">

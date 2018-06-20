@@ -10,7 +10,13 @@ if (state_new)
 if (obj_player.weapons_grid[1,2] < obj_player.weapons_grid[1,11])
 obj_player.weapons_grid[1,2] += floor(obj_player.deagle_regen);
 
-
+//insanity sound
+if(!audio_is_playing(obj_player.insanity_sound))
+{
+    audio_play_sound(obj_player.insanity_sound,1,false); // play sound
+    
+}
+audio_sound_gain(obj_player.insanity_sound,currently_possessed_enemy.insanity/100,0)
 
 //if possession shield breaks, destory possession
 if (obj_player.possession_shield <= 0)
@@ -27,6 +33,7 @@ with (obj_player_possess)
 if (obj_player.v && currently_possessed_enemy.insanity >= 50)
 {
 state_switch("notPossessing");
+audio_play_sound(obj_player.consume_sound,1,false); // play sound
 scr_lose_weapon(obj_player,currently_possessed_enemy);
 obj_player.possession_shield = 0;
 with(obj_player_possess.currently_possessed_enemy)
@@ -44,6 +51,7 @@ if (instance_exists(currently_possessed_enemy))
 if (currently_possessed_enemy.insanity >= 100)
 {
 state_switch("notPossessing");
+audio_play_sound(obj_player.consume_sound,1,false); // play sound
 scr_lose_weapon(obj_player,currently_possessed_enemy);
 obj_player.possession_shield = 0;
 with(obj_player_possess.currently_possessed_enemy)

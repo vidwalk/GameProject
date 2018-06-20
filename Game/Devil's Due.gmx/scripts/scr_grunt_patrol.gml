@@ -2,7 +2,6 @@ if (state_new)
 {
 
     path_end(); //end any previous paths
-    
     //if he is not in the initial patrol start point, move there
     if (x != patrol_x1 || y!= patrol_y1)
     {

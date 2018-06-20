@@ -5,7 +5,7 @@ if(state_new) //if object enters state for the first time
 }
 
 
-if (obj_player.space && distance_to_object(obj_player)<5) //if player actions near door
+if (obj_player.space && distance_to_object(obj_player)<10) //if player actions near door
 {
 if (instance_exists(obj_door_purple))
 if (id.object_index == obj_door_purple.object_index)
@@ -21,5 +21,9 @@ key = obj_player.red_key;
 
 if (key)
 state_switch("open") //switch to open
+else
+{
+if (!audio_is_playing(locked_sound))
+audio_play_sound_at(locked_sound,x,y,0,100,600,1,false,1); // play sound
 }
-
+}

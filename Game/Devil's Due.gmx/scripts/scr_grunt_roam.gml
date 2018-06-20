@@ -1,5 +1,7 @@
 if (state_new)
 {
+    sprite_index = sprite_run;
+    image_speed = 0.1;
         path_end();      //End any previous paths
     if (mp_grid_path(global.grid_ai,path,x,y,obj_grid_ai.cell_width-obj_grid_ai.cell_width/2,roam_y2*obj_grid_ai.cell_height-obj_grid_ai.cell_height/2,1)) //If you find suitable path
     {    
