@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>randomize(); //randomize</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -63,7 +63,7 @@
     <instance objName="obj_key_purple" x="192" y="256" name="inst_C78BA979" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_key_red" x="544" y="608" name="inst_9D03B6C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_grunt" x="224" y="128" name="inst_2F8A3704" locked="0" code="state_switch(&quot;idle&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="270"/>
-    <instance objName="obj_grunt" x="544" y="128" name="inst_575076AF" locked="0" code="default_state = &quot;patrol&quot;;&#xA;patrol_x2 = 608;&#xA;patrol_y2 = 672;&#xA;state_switch(&quot;patrol&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grunt" x="1200" y="208" name="inst_575076AF" locked="0" code="default_state = &quot;patrol&quot;;&#xA;patrol_x2 = 608;&#xA;patrol_y2 = 672;&#xA;state_switch(&quot;patrol&quot;);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_box_01" x="352" y="224" name="inst_0B4977EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_box_01" x="416" y="224" name="inst_FB69C30D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_box_01" x="480" y="352" name="inst_7165D00F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

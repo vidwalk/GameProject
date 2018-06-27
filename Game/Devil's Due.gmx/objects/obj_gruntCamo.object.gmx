@@ -79,7 +79,7 @@ player_x = 0;
 player_y = 0;
 
 alert_chase_stop = false; //when to stop chasing
-
+finish_death = false;
 
 
 </string>
@@ -251,6 +251,29 @@ obj_player.possession_charges++;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>finish_death = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -392,6 +415,15 @@ insanity-=insanity_rate/room_speed;
             <kind>1</kind>
             <string>//Draw Sprite
 draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
+//Dead corpse
+if (state_name == "dead")
+{
+if (surface_exists(obj_wounds_control.damagemask))
+{
+surface_set_target(obj_wounds_control.damagemask);
+draw_sprite_ext(sprite_index,0,x,y,1,1,1,c_white,1);
+}
+}
 </string>
           </argument>
         </arguments>

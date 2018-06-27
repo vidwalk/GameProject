@@ -56,6 +56,8 @@ last_weapon = 0;
 weapon_boolean = false;
 splash_dir = 0;
 show_splash = true;
+do_splash = true;
+old_bullet = noone;
 
 
 
@@ -282,8 +284,9 @@ footsteps_array[2,0] = snd_player_footstep_concrete_02;
             <kind>1</kind>
             <string>///Hit Sprites
 hit_sprite[0] = spr_hit_blood_01;
-hit_sprite[1] = spr_hit_blood_01;
-hit_sprite[2] = spr_hit_blood_01;
+hit_sprite[1] = spr_hit_blood_02;
+hit_sprite[2] = spr_hit_blood_03;
+hit_sprite[3] = spr_hit_blood_04;
 </string>
           </argument>
         </arguments>
@@ -520,30 +523,26 @@ draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),1,1,dir,c_white,1)
 
 //splash when hit
 bullet = instance_place(x,y,obj_bullet)
-if (show_splash)
+if (bullet &amp;&amp; bullet.creator != obj_player &amp;&amp; do_splash == true)
 {
-show_splash = false;
+old_bullet = bullet;
+do_splash = false;
 sprite = hit_sprite[irandom_range(0,array_length_1d(hit_sprite)-1)];
 image = irandom_range(0,sprite_get_number(sprite)-1);
-}
-if (bullet &amp;&amp; bullet.creator != obj_player)
-{
-if (instance_exists(bullet))
-with (bullet)
-if (instance_exists(creator))
-other.splash_dir = 180+creator.dir;
 //wounds on the ground
 if (surface_exists(obj_wounds_control.damagemask))
 {
 surface_set_target(obj_wounds_control.damagemask);
-draw_sprite_ext(sprite,image,bullet.x,bullet.y,1,1,splash_dir,c_white,1); //needs fix for animation
+with (bullet)
+other.splash_dir = shot_angle+180;
+draw_sprite_ext(sprite,image,bullet.x+lengthdir_x(64,180+bullet.shot_angle),bullet.y+lengthdir_y(64,180+bullet.shot_angle),1,1,splash_dir,c_white,1); //needs fix for animation
 surface_reset_target();
 }
 else
 obj_wounds_control.damagemask = surface_create(room_width,room_height);
 }
-if (bullet == noone)
-show_splash = true;
+if (bullet != old_bullet)
+do_splash = true;
 </string>
           </argument>
         </arguments>

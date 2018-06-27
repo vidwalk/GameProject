@@ -1,6 +1,5 @@
 if (state_new)
 {
-
     path_end(); //end any previous paths
     //if he is not in the initial patrol start point, move there
     if (x != patrol_x1 || y!= patrol_y1)
@@ -34,8 +33,3 @@ dir = point_direction(x,y,patrol_x2,patrol_y2);
 //If player comes too close, engage
 if (distance_to_object(obj_player)<=alert_range && state_name == "patrol")
 state_switch("alert");
-
-//Death
-if (hp <= 0)
-instance_destroy();
-

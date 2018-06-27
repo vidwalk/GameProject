@@ -59,10 +59,11 @@ draw_text(100,420,"Player possession state: "+string(obj_player_possess.state_na
 draw_text(100,440,"Currently possessed enemy id: "+string(obj_player_possess.currently_possessed_enemy));
 draw_text(100,460,"Currently possessed enemy type: "+string(obj_player_possess.currently_possessed_enemy_type));
 with (obj_player_possess)
+{
 if (instance_exists(currently_possessed_enemy))
 draw_text(100,480,"Currently possessed enemy state "+string(currently_possessed_enemy.state_name));
 //draw_text(100,500,"Currently possessed enemy: "+string(obj_player_possess.currently_possessed_enemy));
-
+}
 //draw_text(100,500,obj_grunt.state_name)
 
 if (instance_exists(obj_bullet_possession))
@@ -147,7 +148,7 @@ with (obj_grid_ai)
 {
 draw_set_alpha(0.2);
 draw_set_colour(c_blue);
-mp_grid_draw(global.grid_ai);
+//mp_grid_draw(global.grid_ai);
 for (var i = 0; i &lt; room_width; i += 64;)
     {
     draw_line_width(i, 0, i, room_height, 3);
@@ -161,6 +162,10 @@ for (var j = 0; j &lt; room_width; j += 64;)
 //Security Debug
 with (obj_enemy)
 {
+draw_set_alpha(0.7)
+draw_set_color(c_orange)
+draw_rectangle(x-sprite_width/2,y-sprite_height/2,x+sprite_width/2,y+sprite_height/2,0)
+draw_set_alpha(1);
 draw_set_color(c_red)
 //draw_circle(x,y,alert_range,1)
 draw_set_color(c_blue)

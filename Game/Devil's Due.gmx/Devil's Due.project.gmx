@@ -120,6 +120,7 @@
       <sprites name="GruntCamo">
         <sprite>sprites\spr_gruntCamo_idle</sprite>
         <sprite>sprites\spr_gruntCamo_run</sprite>
+        <sprite>sprites\spr_gruntCamo_dead</sprite>
       </sprites>
     </sprites>
     <sprites name="Misc">
@@ -131,6 +132,8 @@
         <sprite>sprites\spr_hit_blood_01</sprite>
         <sprite>sprites\spr_hit_blood_02</sprite>
         <sprite>sprites\spr_hit_blood_03</sprite>
+        <sprite>sprites\spr_hit_blood_04</sprite>
+        <sprite>sprites\spr_bloodpool</sprite>
       </sprites>
       <sprites name="Wood">
         <sprite>sprites\spr_hit_wood_01</sprite>
@@ -204,6 +207,7 @@
         <script>scripts\scr_grunt_patrol.gml</script>
         <script>scripts\scr_grunt_engaged.gml</script>
         <script>scripts\scr_grunt_alert.gml</script>
+        <script>scripts\scr_grunt_dead.gml</script>
       </scripts>
     </scripts>
     <scripts name="Mechanics">

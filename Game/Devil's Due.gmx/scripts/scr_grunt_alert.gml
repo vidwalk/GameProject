@@ -2,8 +2,8 @@
 if (state_new)
 {
     path_end();
-    player_x = obj_player.x;
-    player_y = obj_player.y;
+    player_x = round(obj_player.x/obj_grid_ai.cell_width)*obj_grid_ai.cell_width;
+    player_y = round(obj_player.y/obj_grid_ai.cell_width)*obj_grid_ai.cell_width;
     alert_chase_stop = false;
     alarm[2] = room_speed*alert_chase_timer;
     if (mp_grid_path(global.grid_ai,path,x,y,player_x,player_y,1))
@@ -19,12 +19,12 @@ state_switch(default_state);
 
 if (!vision && distance_to_object(obj_player) <= alert_range)
 {
-player_x = obj_player.x;
-player_y = obj_player.y;
+ player_x = round(obj_player.x/obj_grid_ai.cell_width)*obj_grid_ai.cell_width;
+ player_y = round(obj_player.y/obj_grid_ai.cell_width)*obj_grid_ai.cell_width;
 if (mp_grid_path(global.grid_ai,path,x,y,player_x,player_y,1))
 path_start(path,spd,path_action_stop,0)
 }
 
 //Death
 if (hp <= 0)
-instance_destroy();
+state_switch("dead");

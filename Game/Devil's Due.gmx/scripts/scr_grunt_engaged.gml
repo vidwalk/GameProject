@@ -28,7 +28,9 @@ scr_enemy_bullet_hitscan(id);
 }
 else
 {
-    if (mp_grid_path(global.grid_ai, path, x, y, obj_player.x, obj_player.y,1))
+    player_x = round(obj_player.x/obj_grid_ai.cell_width)*obj_grid_ai.cell_width;
+    player_y = round(obj_player.y/obj_grid_ai.cell_width)*obj_grid_ai.cell_width;
+    if (mp_grid_path(global.grid_ai, path, x, y, player_x, player_y,1))
     path_start(path,spd,path_action_stop,0);
 }
 if (distance_to_object(obj_player) > engage_range)
@@ -36,7 +38,7 @@ state_switch("alert")
 
 //Death
 if (hp <= 0)
-instance_destroy();
+state_switch("dead");
 
 //check if still in line of sight
 vision = collision_line(x,y,obj_player.x,obj_player.y,obj_solid,0,1);

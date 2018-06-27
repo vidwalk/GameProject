@@ -13,4 +13,4 @@ state_switch(default_state)
 
 //Death
 if (hp <= 0)
-instance_destroy();
+state_switch("dead");

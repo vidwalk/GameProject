@@ -36,6 +36,4 @@ state_switch("alert");
 //If you stay idle for too long change to roam
 //if (idle_timer_done)
 //state_switch("roam");
-//Death
-if (hp <= 0)
-instance_destroy();
+
